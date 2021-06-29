@@ -1,29 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { StoreProvider } from "./utils/GlobalState";
-import FavoritesList from "./pages/FavoritesList";
+import Activity from "./pages/Activity"
+import Dashboard from "./pages/Dashboard";
+import Module from "./pages/Module"
+import NotFound from "./pages/NotFound";
+import Nav from "./components/Nav"
+
 
 function App() {
-  return (
-    <Router>
+    return (
+        <Router>
       <div>
-        <StoreProvider>
           <Nav />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/favorites" component={FavoritesList} />
-            <Route exact path="/posts/:id" component={Detail} />
-            <Route component={NoMatch} />
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            {/* update these pages to take in parameters to display based on the selected module or activity */}
+            <Route exact path="/module" component={Module} />
+            <Route exact path="/activity" component={Activity} />            
+            <Route component={NotFound} />
           </Switch>
-        </StoreProvider>
+
       </div>
     </Router>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;
