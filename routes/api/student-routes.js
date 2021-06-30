@@ -3,7 +3,7 @@ const { Student, Grade } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const studentData = await Student.findAll({
+    studentData = await Student.findAll({
       include: [{ model: Grade }],
     });
     res.status(200).json(categoryData);
