@@ -1,13 +1,22 @@
-const User = require('./User');
-const Project = require('./Project');
+const Student = require("./student");
+const Login = require("./login");
+const Course = require("./course");
+const Module = require("./module");
+const Activity = require("./activity");
 
-User.hasMany(Project, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+// const db = require("./models");
+// db.Student.create;
+
+Student.hasOne(Course, {
+  foreignKey: "course_id",
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+Course.hasMany(Module, {
+  foreignKey: "module_id",
 });
 
-module.exports = { User, Project };
+Module.hasMany(Activity, {
+  foreignKey: "activity_id",
+});
+
+module.exports = { Student, Login, Course, Module, Activity };
