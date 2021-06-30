@@ -1,27 +1,27 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class User extends Model {}
+class Student extends Model {}
 
-User.init(
+Student.init(
   {
-    user_id: {
+    student_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    opt_in: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
@@ -29,8 +29,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "student",
   }
 );
 
-module.exports = User;
+module.exports = Student;

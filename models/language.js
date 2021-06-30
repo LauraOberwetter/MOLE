@@ -1,27 +1,19 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class User extends Model {}
+class Language extends Model {}
 
-User.init(
+Language.init(
   {
-    user_id: {
+    language_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    language_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    opt_in: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
     },
   },
   {
@@ -29,8 +21,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "course",
   }
 );
 
-module.exports = User;
+module.exports = Language;

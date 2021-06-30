@@ -1,27 +1,19 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class User extends Model {}
+class Activity extends Model {}
 
-User.init(
+Activity.init(
   {
-    user_id: {
+    activity_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    activity_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    opt_in: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
     },
   },
   {
@@ -29,8 +21,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "contrast",
   }
 );
 
-module.exports = User;
+module.exports = Activity;
