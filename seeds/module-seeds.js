@@ -18,7 +18,7 @@ const moduleData = [
   },
   {
     module_name: "Japanese 4",
-    due_datee: 7 / 20 / 2021,
+    due_date: 7 / 20 / 2021,
     status: "Not Started",
   },
   {
