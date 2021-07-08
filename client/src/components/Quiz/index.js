@@ -7,7 +7,7 @@ function Quiz() {
 			answerOptions: [
 				{answerText: 'tener', isCorrect: false},
 				{answerText: 'atender', isCorrect: true}
-			] 
+			]
 		},
 		{
 			questionNumber: 2,
@@ -35,6 +35,8 @@ function Quiz() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [quizScore, setQuizScore] = useState(1);
 
+
+
 	const handleButtonClick = (isCorrect) => {
 		if (isCorrect) {	
 			setQuizScore(quizScore + 1);
@@ -49,7 +51,7 @@ function Quiz() {
 			alert("you have reached the end of the quiz!")
 		}	
 	}
-	
+ 
     return (
 		<>
 		<h2>Select the Correct Answer</h2>
@@ -63,5 +65,7 @@ function Quiz() {
     );
     
 }
+
+
 
 export default Quiz
