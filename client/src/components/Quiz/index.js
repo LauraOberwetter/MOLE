@@ -1,4 +1,5 @@
 import React, { useState }  from "react";
+import ProgressBar from "@ramonak/react-progress-bar"; //progress bar package imported
 
 function Quiz() {
 	const questions = [
@@ -34,6 +35,8 @@ function Quiz() {
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [quizScore, setQuizScore] = useState(1);
+	const [quizProgress, setQuizProgress] = useState(0) //starting @ 0
+	const [quizComplete, setQuizComplete] = useState("")
 
 
 
@@ -45,12 +48,17 @@ function Quiz() {
 			console.log("next")
 		};
 		const nextQuestion = currentQuestion + 1;
+		const percentage = 100 / questions.length;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
+			setQuizProgress(quizProgress + percentage)
 		} else {
-			alert("you have reached the end of the quiz!")
+			setQuizProgress(quizProgress + percentage)
+			//alert("you have reached the end of the quiz!") 
+			setQuizComplete("quiz complete") // replaced the alert with this!
 		}	
 	}
+
  
     return (
 		<>
@@ -60,7 +68,10 @@ function Quiz() {
 				<button onClick={() => handleButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>)
 			)}			
 		</div>
+		<ProgressBar completed={quizProgress} />
+		<p>{quizComplete}</p>
 		</>
+		
         
     );
     
