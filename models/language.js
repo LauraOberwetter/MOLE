@@ -5,7 +5,7 @@ class Language extends Model {}
 
 Language.init(
   {
-    language_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -21,7 +21,7 @@ Language.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "course",
+    modelName: "language",
   }
 );
 
