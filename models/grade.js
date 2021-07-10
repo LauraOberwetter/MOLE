@@ -5,7 +5,7 @@ class Grade extends Model {}
 
 Grade.init(
   {
-    grade_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -18,18 +18,11 @@ Grade.init(
         isDecimal: true,
       },
     },
-    module_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "module",
-        key: "module_id",
-      },
-      student_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "student",
-          key: "student_id",
-        },
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -38,7 +31,7 @@ Grade.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "contrast",
+    modelName: "grade",
   }
 );
 

@@ -5,7 +5,7 @@ class Course extends Model {}
 
 Course.init(
   {
-    course_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -14,6 +14,13 @@ Course.init(
     course_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    language_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "language",
+        key: "id",
+      },
     },
   },
   {
