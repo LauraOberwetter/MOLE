@@ -1,24 +1,20 @@
-const mysql = require("mysql"); //import mysql
-const util = require("util"); //allows use of promisify from library
+//const mysql = require("mysql"); //import mysql
+const Sequelize = require('sequelize');
 
-//create connection with mysql
-//store in .env
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "mySQLpWord:)",
-    database: "hvpt"
-})
+require('dotenv').config();
 
-// connect to the mysql server and sql database
-connection.connect((err) => {
-    if (err) throw err;
-    // run the start function after the connection is made to prompt the user
-    start();
+
+let sequelize;
+
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: 'localhost',
+    dialect: 'mysql',
+    port: 3306
   });
+}
 
-//promisifying queries allows us to use async/await syntax
-connection.query = util.promisify(connection.query)
 
-//export connection
-module.exports = connection;
+module.exports = sequelize;

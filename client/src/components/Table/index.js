@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import API from '../../utils/API';
+// import API from '../../utils/API';
 
 const useStyles = makeStyles({
   table: {
@@ -20,42 +20,49 @@ export default function BasicTable() {
   const classes = useStyles();
 
 //Populate the Table with Data from an API
-//   const [ users,setUsers ] = useState([]);
+  // const [ modules, setModules ] = useState([]);
 
-//   useEffect(() => {
-//     const getUsers = async () => {
-//       try {
-//         const userList = await API.search()
-//         setUsers(userList.data.results)
-//       } catch (error) {
-//         console.log(error)        
-//       }
-//     }
-//     getUsers();
-//   }, [])
+  // useEffect(() => {
+    // const getModules = async () => {
+    //   try {
+    //     const moduleList = await API.search()
+    //     setModules(moduleList.data.results)
+    //   } catch (error) {
+    //     console.log(error)        
+    //   }
+    // }
+    // getModules();
+  // }, [])
+
+  function createData(module, status, due, user) {
+    return { module, status, due, user };
+  }
+  
+  const rows = [
+    createData('Module 1', 'In Progress', '08/21/2021', 'Emily'),
+    createData('Module 2', 'In Progress', '09/21/2021', 'Emily'),
+    createData('Module 3a', 'Not Started', '10/21/2021', 'Emily'),
+  ];
+
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
-            <TableCell>Module Name</TableCell>
+            <TableCell align="right">Module Name</TableCell>
             <TableCell align="right">Completion Status</TableCell>
             <TableCell align="right">Due Date</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell align="right">{row.thumbnail}</TableCell>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+          {rows.map((row) => (
+            <TableRow key={row.module}>
+              <TableCell align="right">{row.module}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">{row.due}</TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

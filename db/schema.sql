@@ -48,4 +48,12 @@ CREATE DATABASE hvpt_db;
 -- --   foreign key association with activity
 -- );
 
+-- /* Create GRADES table with userID, questions, grade (do we want to do this numerically?)*/
+-- CREATE TABLE grades (
+--   userID INT NOT NULL,
+--   questionSet VARCHAR(100) NOT NULL,
+--   grade VARCHAR(100) NOT NULL,
+--   PRIMARY KEY (userID)
+-- );
+
 
