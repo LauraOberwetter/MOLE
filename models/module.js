@@ -5,7 +5,7 @@ class Module extends Model {}
 
 Module.init(
   {
-    module_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,13 +15,12 @@ Module.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    due_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    status: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    course_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "course",
+        key: "id",
+      },
     },
   },
   {

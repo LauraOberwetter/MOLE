@@ -5,7 +5,7 @@ class Sound extends Model {}
 
 Sound.init(
   {
-    sound_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -29,4 +29,4 @@ Sound.init(
   }
 );
 
-sound.exports = Sound;
+module.exports = Sound;

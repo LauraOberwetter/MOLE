@@ -1,6 +1,8 @@
-/* Schema for main SQL database*/
-DROP DATABASE IF EXISTS hvpt_db;/* Create database */
+DROP DATABASE IF EXISTS hvpt_db;
 CREATE DATABASE hvpt_db;
+
+
+/* Schema for main SQL database*/
 -- USE hvpt_db;
 
 -- /* Create USERS table with a primary key that auto-increments, username, email, and password */
