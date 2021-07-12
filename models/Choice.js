@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Activity extends Model {}
+class Choice extends Model {}
 
-Activity.init(
+Choice.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,26 +11,26 @@ Activity.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    activity_name: {
+    legacy_id: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    activity_type: {
+    roman_label: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    due_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    status: {
+    japanese_label: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    module_id: {
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    question_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "module",
+        model: "question",
         key: "id",
       },
     },
@@ -40,8 +40,8 @@ Activity.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "activity",
+    modelName: "choice",
   }
 );
 
-module.exports = Activity;
+module.exports = Choice;

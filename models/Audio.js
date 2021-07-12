@@ -1,23 +1,30 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Sound extends Model {}
+class Audio extends Model {}
 
-Sound.init(
+Audio.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
     },
-    speaker_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    sound_name: {
+    legacy_id: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    audio_file: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    choice_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "choice",
+        key: "id",
+      },
     },
   },
   {
@@ -25,8 +32,8 @@ Sound.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "sound",
+    modelName: "audio",
   }
 );
 
-module.exports = Sound;
+module.exports = Audio;
