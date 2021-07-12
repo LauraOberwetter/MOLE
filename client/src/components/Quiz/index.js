@@ -1,4 +1,5 @@
 import React, { useState }  from "react";
+import "./style.css";
 import ProgressBar from "@ramonak/react-progress-bar"; //progress bar package imported
 
 function Quiz() {
