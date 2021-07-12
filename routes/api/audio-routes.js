@@ -1,13 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { Activity, Question } = require("../../models");
+const { Audio } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const activityData = await Activity.findAll({
-      include: [Question],
-    });
-    res.status(200).json(activityData);
+    const audioData = await Audio.findAll({});
+    res.status(200).json(audioData);
   } catch (err) {
     res.status(500).json(err);
   }

@@ -3,8 +3,10 @@ const Course = require("./Course");
 const User = require("./User");
 const Module = require("./Module");
 const Activity = require("./Activity");
-const Sound = require("./Sound");
+const Audio = require("./Audio");
 const Grade = require("./Grade");
+const Question = require("./Question");
+const Choice = require("./Choice");
 
 Language.hasMany(Course, {
   foreignKey: "language_id",
@@ -42,6 +44,24 @@ Activity.belongsTo(Module, {
   foreignKey: "module_id",
 });
 
+Activity.hasMany(Question, {
+  foreignKey: "activity_id",
+  onDelete: "CASCADE",
+});
+
+Question.belongsTo(Activity, {
+  foreignKey: "activity_id",
+});
+
+Question.hasMany(Choice, {
+  foreignKey: "question_id",
+  onDelete: "CASCADE",
+});
+
+Choice.belongsTo(Question, {
+  foreignKey: "question_id",
+});
+
 User.hasMany(Grade, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
@@ -51,13 +71,23 @@ Grade.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Activity.hasMany(Sound, {
-  foreignKey: "activity_id",
+Choice.hasMany(Audio, {
+  foreignKey: "choice_id",
   onDelete: "CASCADE",
 });
 
-Sound.belongsTo(Activity, {
-  foreignKey: "activity_id",
+Audio.belongsTo(Choice, {
+  foreignKey: "choice_id",
 });
 
-module.exports = { Language, Course, User, Module, Activity, Sound, Grade };
+module.exports = {
+  Language,
+  Course,
+  User,
+  Module,
+  Activity,
+  Audio,
+  Grade,
+  Choice,
+  Question,
+};

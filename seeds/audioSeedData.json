@@ -1,0 +1,62 @@
+[
+  {
+    "legacy_id": "JA_01XF1",
+    "audio_file": "tsuki",
+    "choice_id": 1
+  },
+  {
+    "legacy_id": "JA_01XM3",
+    "audio_file": "tsuki",
+    "choice_id": 1
+  },
+  {
+    "legacy_id": "JA_01YF1",
+    "audio_file": "suki",
+    "choice_id": 2
+  },
+  {
+    "legacy_id": "JA_01YM3",
+    "audio_file": "suki",
+    "choice_id": 2
+  },
+  {
+    "legacy_id": "JA_03XF1",
+    "audio_file": "tsuugaku",
+    "choice_id": 3
+  },
+  {
+    "legacy_id": "JA_03XM3",
+    "audio_file": "tsuugaku",
+    "choice_id": 3
+  },
+  {
+    "legacy_id": "JA_03YF1",
+    "audio_file": "suugaku",
+    "choice_id": 4
+  },
+  {
+    "legacy_id": "JA_03YM3",
+    "audio_file": "suugaku",
+    "choice_id": 4
+  },
+  {
+    "legacy_id": "JA_05XF1",
+    "audio_file": "tsuna",
+    "choice_id": 5
+  },
+  {
+    "legacy_id": "JA_05XM3",
+    "audio_file": "tsuna",
+    "choice_id": 5
+  },
+  {
+    "legacy_id": "JA_05YF1",
+    "audio_file": "suna",
+    "choice_id": 6
+  },
+  {
+    "legacy_id": "JA_05YM3",
+    "audio_file": "suna",
+    "choice_id": 6
+  }
+]
