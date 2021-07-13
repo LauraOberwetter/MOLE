@@ -1,13 +1,14 @@
 import React from "react";
 import { Container } from "@material-ui/core";
-import BasicTable from "../components/Table";
+import ModuleTable from "../components/ModulesList";
 
+//Get The Modules for this user; Pass the Modules to the ModuleTable component
 
 const Dashboard = () => {
   return ( 
     <Container fluid>
       <h1>My Learning Dashboard</h1>
-    <BasicTable />
+    <ModuleTable />
     </Container>
   );
 };

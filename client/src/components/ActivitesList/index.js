@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function BasicTable() {
+export default function ActivityTable() {
   const classes = useStyles();
 
 //Populate the Table with Data from an API
@@ -39,9 +39,9 @@ export default function BasicTable() {
   }
   
   const rows = [
-    createData('Module 1', 'In Progress', '08/21/2021', 'Emily'),
-    createData('Module 2', 'In Progress', '09/21/2021', 'Emily'),
-    createData('Module 3a', 'Not Started', '10/21/2021', 'Emily'),
+    createData('Activity 1', 'In Progress', '08/21/2021', 'Emily'),
+    createData('Activity 2', 'In Progress', '09/21/2021', 'Emily'),
+    createData('Activity 3', 'Not Started', '10/21/2021', 'Emily'),
   ];
 
 
@@ -50,9 +50,9 @@ export default function BasicTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right">Module Name</TableCell>
-            <TableCell align="right">Completion Status</TableCell>
-            <TableCell align="right">Due Date</TableCell>
+            <TableCell align="right">Activity Name</TableCell>
+            <TableCell align="right">Activity Type</TableCell>
+            <TableCell align="right">Score</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
