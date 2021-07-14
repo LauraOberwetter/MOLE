@@ -1,0 +1,8 @@
+.play-audio {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
