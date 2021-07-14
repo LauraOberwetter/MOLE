@@ -1,0 +1,47 @@
+[
+  {
+    "first_name": "Rebecca",
+    "last_name": "Smith",
+    "username": "rsmith",
+    "password": "password1",
+    "email": "rsmith@university.edu",
+    "opt_in": 1,
+    "course_id": 1
+  },
+  {
+    "first_name": "Ellen",
+    "last_name": "Wilder",
+    "username": "ewilder",
+    "password": "password2",
+    "email": "ewilder@university.edu",
+    "opt_in": 0,
+    "course_id": 1
+  },
+  {
+    "first_name": "Terrence",
+    "last_name": "Howard",
+    "username": "thoward",
+    "password": "password3",
+    "email": "thoweard@university.edu",
+    "opt_in": 1,
+    "course_id": 1
+  },
+  {
+    "first_name": "Paul",
+    "last_name": "Johnson",
+    "username": "pjohnson",
+    "password": "password4",
+    "email": "pjohnson@university.edu",
+    "opt_in": 1,
+    "course_id": 1
+  },
+  {
+    "first_name": "Sarah",
+    "last_name": "Patterson",
+    "username": "spatterson",
+    "password": "password5",
+    "email": "spatterson@university.edu",
+    "opt_in": 1,
+    "course_id": 1
+  }
+]

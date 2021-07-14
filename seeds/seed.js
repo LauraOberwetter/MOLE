@@ -7,6 +7,8 @@ const {
   Question,
   Choice,
   Audio,
+  User,
+  Grade,
 } = require("../models");
 
 const languageSeedData = require("./languageSeedData.json");
@@ -16,6 +18,8 @@ const activitySeedData = require("./activitySeedData.json");
 const questionSeedData = require("./questionSeedData.json");
 const choiceSeedData = require("./choiceSeedData.json");
 const audioSeedData = require("./audioSeedData.json");
+const userSeedData = require("./userSeedData.json");
+const gradeSeedData = require("./gradeSeedData.json");
 
 const seedLanguages = () => Language.bulkCreate(languageSeedData);
 const seedCourses = () => Course.bulkCreate(courseSeedData);
@@ -24,6 +28,8 @@ const seedActivities = () => Activity.bulkCreate(activitySeedData);
 const seedQuestions = () => Question.bulkCreate(questionSeedData);
 const seedChoices = () => Choice.bulkCreate(choiceSeedData);
 const seedAudio = () => Audio.bulkCreate(audioSeedData);
+const seedUser = () => User.bulkCreate(userSeedData);
+const seedGrade = () => Grade.bulkCreate(gradeSeedData);
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -49,6 +55,12 @@ const seedAll = async () => {
 
   await seedAudio();
   console.log("\n----- AUDIO SEEDED -----\n");
+
+  await seedUser();
+  console.log("\n----- USERS SEEDED -----\n");
+
+  await seedGrade();
+  console.log("\n----- GRADES SEEDED -----\n");
 
   process.exit(0);
 };
