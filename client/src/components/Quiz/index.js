@@ -15,6 +15,7 @@ const StyledButton = withStyles({
 	  padding: '10px 50px',
 	  margin: '20px',
 	  fontFamily: 'Montserrat',
+	  fontSize: 20,
 	},
 	label: {
 	  textTransform: 'capitalize',
@@ -89,10 +90,6 @@ function Quiz() {
             <StyledButton
               onClick={() => handleButtonClick(answerOptions.isCorrect)}
               variant="outlined"
-              size="large"
-              style={{
-                fontSize: 24,
-              }}
             >
               {answerOptions.answerText}
             </StyledButton>
