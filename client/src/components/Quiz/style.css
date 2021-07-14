@@ -4,6 +4,12 @@ h3 {
     padding: 40px;
 }
 
+h5 {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 15px;
+}
+
 .answer-selection {
     display: flex;
     justify-content: space-around;

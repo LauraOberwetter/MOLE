@@ -5,7 +5,7 @@ import PlayAudio from "../components/PlayAudio";
 const Activity = () => {
     return (
         <>
-        <h1>Module 1: Activity 1</h1>
+        <h5>Module 1: Activity 1</h5>
         <PlayAudio />
         <Quiz/>
         </>
