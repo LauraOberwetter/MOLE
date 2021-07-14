@@ -1,6 +1,26 @@
 import React, { useState }  from "react";
 import "./style.css";
 import ProgressBar from "@ramonak/react-progress-bar"; //progress bar package imported
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+
+//button styling
+const StyledButton = withStyles({
+	root: {
+	  background: 'linear-gradient(45deg, #b5179e 10%, #7209b7 90%)',
+	  borderRadius: 3,
+	  border: 0,
+	  color: 'white',
+	  height: 60,
+	  padding: '10px 50px',
+	  margin: '20px',
+	  fontFamily: 'Montserrat',
+	},
+	label: {
+	  textTransform: 'capitalize',
+	},
+  })(Button);
+
 
 function Quiz() {
 	const questions = [
@@ -56,24 +76,38 @@ function Quiz() {
 		} else {
 			setQuizProgress(quizProgress + percentage)
 			//alert("you have reached the end of the quiz!") 
-			setQuizComplete("quiz complete") // replaced the alert with this!
+			setQuizComplete("Quiz Complete!") // replaced the alert with this!
 		}	
 	}
 
  
     return (
-		<>
-		<h2>Select the Correct Answer</h2>
-		<div className="answer-selection">
-			{questions[currentQuestion].answerOptions.map((answerOptions)=> (
-				<button onClick={() => handleButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>)
-			)}			
-		</div>
-		<ProgressBar completed={quizProgress} />
-		<p>{quizComplete}</p>
-		</>
-		
-        
+      <>
+        <h3>Select the Correct Answer</h3>
+        <div className="answer-selection">
+          {questions[currentQuestion].answerOptions.map((answerOptions) => (
+            <StyledButton
+              onClick={() => handleButtonClick(answerOptions.isCorrect)}
+              variant="outlined"
+              size="large"
+              style={{
+                fontSize: 24,
+              }}
+            >
+              {answerOptions.answerText}
+            </StyledButton>
+          ))}
+        </div>
+        <div className="prog-bar">
+          <ProgressBar
+            completed={quizProgress}
+            width="97%"
+            bgColor="#b5179e"
+			margin="20px"
+          />
+          <h3>{quizComplete}</h3>
+        </div>
+      </>
     );
     
 }
