@@ -1,62 +1,62 @@
 [
   {
     "legacy_id": "JA_01XF1",
-    "audio_file": "tsuki",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01XF1.wav",
     "choice_id": 1
   },
   {
     "legacy_id": "JA_01XM3",
-    "audio_file": "tsuki",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01XM3.wav",
     "choice_id": 1
   },
   {
     "legacy_id": "JA_01YF1",
-    "audio_file": "suki",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01YF1.wav",
     "choice_id": 2
   },
   {
     "legacy_id": "JA_01YM3",
-    "audio_file": "suki",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01YM3.wav",
     "choice_id": 2
   },
   {
     "legacy_id": "JA_03XF1",
-    "audio_file": "tsuugaku",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03XF1.wav",
     "choice_id": 3
   },
   {
     "legacy_id": "JA_03XM3",
-    "audio_file": "tsuugaku",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03XM3.wav",
     "choice_id": 3
   },
   {
     "legacy_id": "JA_03YF1",
-    "audio_file": "suugaku",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03YF1.wav",
     "choice_id": 4
   },
   {
     "legacy_id": "JA_03YM3",
-    "audio_file": "suugaku",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03YM3.wav",
     "choice_id": 4
   },
   {
     "legacy_id": "JA_05XF1",
-    "audio_file": "tsuna",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05XF1.wav",
     "choice_id": 5
   },
   {
     "legacy_id": "JA_05XM3",
-    "audio_file": "tsuna",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05XM3.wav",
     "choice_id": 5
   },
   {
     "legacy_id": "JA_05YF1",
-    "audio_file": "suna",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05YF1.wav",
     "choice_id": 6
   },
   {
     "legacy_id": "JA_05YM3",
-    "audio_file": "suna",
+    "audio_file": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05YM3.wav",
     "choice_id": 6
   }
 ]
