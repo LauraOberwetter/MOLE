@@ -1,0 +1,25 @@
+h3 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px;
+}
+
+h5 {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 15px;
+}
+
+.answer-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* why won't this center hahaha */
+/* .prog-bar {
+
+} */
