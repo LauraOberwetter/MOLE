@@ -5,6 +5,10 @@ export default {
   getModules: function () {
     return axios.get("api/modules");
   },
+
+  getQuestions: function (id) {
+    return axios.get("api/activities/" + id)
+  },
   //   // Gets the post with the given id
   //   getPost: function (id) {
   //     return axios.get("/api/posts/" + id);
