@@ -9,6 +9,10 @@ export default {
   getQuestions: function (id) {
     return axios.get("api/activities/" + id)
   },
+
+  getChoices: function (id) {
+    return axios.get("api/questions/" + id)
+  }
   //   // Gets the post with the given id
   //   getPost: function (id) {
   //     return axios.get("/api/posts/" + id);

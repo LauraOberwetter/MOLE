@@ -13,4 +13,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+router.get("/:id", async (req, res) => {
+  try {
+    const choiceData = await Choice.findByPk(req.params.id, {
+      include: [Audio],
+    });
+    res.status(200).json(choiceData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;

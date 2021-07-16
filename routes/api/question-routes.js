@@ -13,4 +13,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const questionData = await Question.findByPk(req.params.id, {
+      include: [Choice],
+    });
+    res.status(200).json(questionData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

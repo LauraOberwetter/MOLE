@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import "./style.css";
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import Activity from "../../pages/Activity";
+import API from "../../utils/API";
+
 
 //button styling
 const StyledButton = withStyles({
@@ -28,7 +32,25 @@ export default class extends Component {
     audioEl.play()
   }
 
-  render() {
+  render(question) {
+    //UPDATE COMPONENT TO GET THE RIGHT AUDIO FILE
+    // const [audio, setAudio] = useState();
+    // useEffect(() => {
+    //   //need to update to pass the id from activity id  
+    //   const id = "1";
+    //   const getAudio = async () => {
+    //     try {
+    //       const audioObj = await API.getAudio(id);   
+    //       setAudio(audioObj.data);
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+    //   getAudio();
+    // }, 
+    // []);
+    // console.log(audio);
+
     return (
       <div className="play-audio">
         <StyledButton onClick={this.playAudio}>
@@ -41,3 +63,27 @@ export default class extends Component {
     )
   }
 }
+
+
+// function PlayAudio () {
+//   // playSound(() => {
+//   //   const audioEl = document.getElementsByClassName("audio-element")[0]
+//   //   audioEl.play()
+//   // }
+//   // ) 
+  
+
+//   return (
+//     <div className="play-audio">
+// {/* //         <StyledButton onClick={this.playSound}> */}
+//             <StyledButton>
+// //           <span>Play Audio</span>
+// //         </StyledButton>
+// //         <audio className="audio-element">
+// //           <source src={}></source>
+// //         </audio>
+// //       </div>
+//   )
+// }
+
+// export default PlayAudio
