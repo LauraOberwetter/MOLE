@@ -24,47 +24,26 @@ const StyledButton = withStyles({
 	},
   })(Button);
 
-
 function Quiz(props) {	
-  const [choices, setChoices] = useState([]);
-	useEffect (() => {
-		const getChoices = async () => {
-			try {
-        //update this to take in dynamic ID
-        const choicesList = await API.getChoices(1);
-				setChoices(choicesList.data.choices)
-			} catch (error) {
-        console.log(error);
-			}
-		}
-    getChoices();
-	},
-  []);  
-  console.log(choices)
-    
-    
+  function isCorrect(e) {
+    console.log(e.target.dataset.id)
+    if (e.target.dataset.id === props.question.correct_choice_id) {
+      console.log("correct")
+    } else {
+      console.log("incorrect")
+    }
+    props.setCurrentQuestion(props.currentQuestion + 2);
+  }    
 
  
     return (
       <>
         <h3>Select the Correct Answer</h3>
        
-        <div className="answer-selection">
-          {choices.map((choiceBtns) => (
-            <StyledButton>{choiceBtns.japanese_label} </StyledButton>
-          ))}
-        </div>
-        
-        {/* <div className="answer-selection">
-          {questions[currentQuestion].answerOptions.map((answerOptions) => (
-            <StyledButton
-              onClick={() => handleButtonClick(answerOptions.isCorrect)}
-              variant="outlined"
-            >
-              {answerOptions.answerText}
-            </StyledButton>
-          ))}
-        </div> */}
+        {props.question &&<div className="answer-selection">         
+            <StyledButton data-id={props.question.choice1_id} onClick={isCorrect}>{props.question.choices[0].japanese_label} </StyledButton>
+            <StyledButton data-id={props.question.choice2_id} onClick={isCorrect}>{props.question.choices[1].japanese_label} </StyledButton>
+        </div>}
 
         {/* <div className="prog-bar">
           <ProgressBar
