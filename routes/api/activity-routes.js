@@ -13,4 +13,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+//get activity & questions for a single activity id
+router.get("/:id", async (req, res) => {
+  try {
+    const activityData = await Activity.findByPk(req.params.id, {
+      include: [Question],
+    });
+    res.status(200).json(activityData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
