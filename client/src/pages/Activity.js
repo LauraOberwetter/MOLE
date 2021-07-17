@@ -56,7 +56,7 @@ const Activity = () => {
         <>
         <h5>Module 1: Activity 1</h5>        
           <PlayAudio question={questions[currentQuestion]}/>
-          <Quiz question={questions[currentQuestion]} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
+          <Quiz questions={questions} question={questions[currentQuestion]} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
         </>
     )};
 
