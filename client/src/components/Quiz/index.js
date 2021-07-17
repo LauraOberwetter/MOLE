@@ -3,8 +3,6 @@ import "./style.css";
 import ProgressBar from "@ramonak/react-progress-bar"; //progress bar package imported
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import PlayAudio from "../PlayAudio";
-import API from "../../utils/API";
 
 //button styling
 const StyledButton = withStyles({
