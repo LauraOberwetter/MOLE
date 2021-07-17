@@ -28,7 +28,7 @@ const seedActivities = () => Activity.bulkCreate(activitySeedData);
 const seedQuestions = () => Question.bulkCreate(questionSeedData);
 const seedChoices = () => Choice.bulkCreate(choiceSeedData);
 const seedAudio = () => Audio.bulkCreate(audioSeedData);
-const seedUser = () => User.bulkCreate(userSeedData);
+const seedUser = () => User.bulkCreate(userSeedData, {individualHooks: true});
 const seedGrade = () => Grade.bulkCreate(gradeSeedData);
 
 const seedAll = async () => {
