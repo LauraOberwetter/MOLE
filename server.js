@@ -9,16 +9,17 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// turn on routes
-app.use(routes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build"));
+// });
+
+// turn on routes
+app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
@@ -26,3 +27,5 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Now listening on port ${PORT}!`);
   });
 });
+
+

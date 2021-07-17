@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import "./style.css";
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import Activity from "../../pages/Activity";
-import API from "../../utils/API";
+
 
 
 //button styling
@@ -32,7 +31,7 @@ export default class extends Component {
     audioEl.play()
   }
 
-  render(question) {
+  render(props) {
     //UPDATE COMPONENT TO GET THE RIGHT AUDIO FILE
     // const [audio, setAudio] = useState();
     // useEffect(() => {

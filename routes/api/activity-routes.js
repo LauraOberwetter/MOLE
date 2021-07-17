@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Activity, Question } = require("../../models");
+const { Activity, Question, Choice, Audio } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -17,7 +17,13 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const activityData = await Activity.findByPk(req.params.id, {
-      include: [Question],
+      include: [{
+        model: Question, 
+        include: [{
+          model: Choice,
+          include: [Audio]
+        }]
+      }],
     });
     res.status(200).json(activityData);
   } catch (err) {
