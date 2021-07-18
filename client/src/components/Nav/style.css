@@ -1,0 +1,21 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    color: #FCF300;
+    display: flex;
+    font-size: 1em;
+    align-items: center;
+    text-decoration: none;
+    padding: 1rem;
+    height: 100%;
+}
+
+.navLink:hover {
+    color: black;
+    text-decoration: none; 
+}
