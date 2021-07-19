@@ -29,6 +29,7 @@
     "find-config": "^1.0.0",
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "sequelize": "^6.6.5",
     "styled": "^1.0.0",

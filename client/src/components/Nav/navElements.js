@@ -3,12 +3,11 @@ import {NavLink as Link} from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
 
 export const Nav = styled.nav`
-    background: #1E96FC;
-    height: 80px;
+    background: #FFFFFF;
+    height: 75px;
     padding: .75rem;
-    z-index: 100;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 `
 
 
@@ -16,7 +15,7 @@ export const Bars = styled(FaBars)`
     display: none;
 
     @media screen and (max-width: 768px) {
-        color: #FFC600;
+        color: #072AC8;
         display: block;
         postion: absolute;
         top: 0;

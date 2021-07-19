@@ -9,15 +9,15 @@ import { withStyles } from '@material-ui/core/styles';
 //button styling
 const StyledButton = withStyles({
 	root: {
-	  background: 'linear-gradient(45deg, #1E96FC 10%, #072AC8 90%)',
+	  background: 'linear-gradient(45deg, #FCF300 2%, #FFC600 97%)',
 	  borderRadius: 3,
 	  border: 0,
-	  color: 'white',
+	  color: '#072AC8',
 	  height: 60,
 	  padding: '10px 50px',
 	  margin: '20px',
     fontFamily: 'Montserrat',
-    fontSize: 20,
+    fontSize: 40,
 	},
 	label: {
 	  textTransform: 'capitalize',
@@ -53,7 +53,7 @@ export default class extends Component {
     return (
       <div className="play-audio">
         <StyledButton onClick={this.playAudio}>
-          <span>Play Audio</span>
+          <span><i class="far fa-play-circle"></i></span>
         </StyledButton>
         <audio className="audio-element">
           <source src="https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01XM3.wav"></source>
