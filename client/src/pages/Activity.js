@@ -7,7 +7,7 @@ import API from "../utils/API";
 
 const Activity = () => {
     const [questions, setQuestions] = useState([]);
-    // const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
     // const [quizScore, setQuizScore] = useState(1);
     // const [quizProgress, setQuizProgress] = useState(0) //starting @ 0
     // const [quizComplete, setQuizComplete] = useState("")
@@ -28,8 +28,6 @@ const Activity = () => {
       }, 
       []);
 
-      
-      
       
 
     //previous function used
@@ -56,9 +54,9 @@ const Activity = () => {
 
     return (
         <>
-        <h5>Module 1: Activity 1</h5>        
-          <PlayAudio question={questions}/>
-          <Quiz questions={questions}/>
+        <h5 style={{color: "#072AC8", padding:"25px", fontFamily: 'Playfair Display'}}>Module 1: Activity 1</h5>        
+          <PlayAudio question={questions[currentQuestion]}/>
+          <Quiz questions={questions} question={questions[currentQuestion]} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
         </>
     )};
 

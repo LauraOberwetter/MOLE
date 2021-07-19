@@ -13,6 +13,16 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import API from "../../utils/API";
+import "./style.css";
+
+// const useStyles = makeStyles({
+//   table: {
+//     minWidth: 650,
+//     // cannot get this to work
+//     fontFamily: "Montserrat",
+//     color: "red",
+//   },
+// });
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,10 +95,3 @@ export default function ModuleList() {
     </div>
   );
 }
-
-// activity_name: "Quiz"
-// activity_type: "Practice"
-// due_date: "2021-07-30"
-// id: 3
-// module_id: 1
-// status: "Complete"

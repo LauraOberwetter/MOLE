@@ -7,7 +7,7 @@ import ActivityTable from "../components/ActivitesList";
 const Module = () => {
     return (
         <>
-        <h1>Module things here !</h1>
+        <h1 style={{color: "#072AC8", padding:"25px", fontFamily: 'Playfair Display'}}>Module things here !</h1>
         <ActivityTable/>
         </>
     )};
