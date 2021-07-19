@@ -7,16 +7,15 @@ export default {
   },
 
   getQuestions: function (id) {
-    return axios.get("api/activities/" + id)
+    return axios.get("api/activities/" + id);
   },
 
   getChoices: function (id) {
-    return axios.get("api/questions/" + id)
-  }
-  //   // Gets the post with the given id
-  //   getPost: function (id) {
-  //     return axios.get("/api/posts/" + id);
-  //   },
+    return axios.get("api/questions/" + id);
+  },
+  getActivities: function (id) {
+    return axios.get("/api/activities/" + id);
+  },
   //   // Deletes the post with the given id
   //   deletePost: function (id) {
   //     return axios.delete("/api/posts/" + id);
