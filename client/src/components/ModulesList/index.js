@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -7,19 +6,28 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import API from "../../utils/API";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
   },
-});
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+}));
 
-export default function BasicTable() {
+export default function ModuleList() {
   const classes = useStyles();
-
-  //Populate the Table with Data from an API
   const [modules, setModules] = useState([]);
+  const [expanded, setExpanded] = useState("panel1");
 
   useEffect(() => {
     const getModules = async () => {
@@ -35,36 +43,52 @@ export default function BasicTable() {
     console.log(modules);
   }, []);
 
-  function createData(module, status, due, user) {
-    return { module, status, due, user };
-  }
-
-  const rows = [
-    createData("Module 1", "In Progress", "08/21/2021", "Emily"),
-    createData("Module 2", "In Progress", "09/21/2021", "Emily"),
-    createData("Module 3a", "Not Started", "10/21/2021", "Emily"),
-  ];
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">Module Name</TableCell>
-            {/* <TableCell align="right">Completion Status</TableCell>
-            <TableCell align="right">Due Date</TableCell> */}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {modules.map((row) => (
-            <TableRow key={row.module}>
-              <TableCell align="left">{row.module_name}</TableCell>
-              {/* <TableCell align="right">{row.status}</TableCell>
-              <TableCell align="right">{row.due}</TableCell> */}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      {modules.map((item) => {
+        return (
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>
+                <span>{item.module_name}</span>
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              {item.activities.length > 0 &&
+                item.activities.map((act) => {
+                  return (
+                    <React.Fragment key={act.id}>
+                      <Typography variant="h6">{act.activity_name}</Typography>{" "}
+                      <br />
+                      <Typography variant="h6">
+                        {act.activity_type}
+                      </Typography>{" "}
+                      <br />
+                      <Typography variant="h6">{act.due_date}</Typography>{" "}
+                      <br />
+                      <Typography variant="h6">{act.status}</Typography> <br />
+                    </React.Fragment>
+                  );
+                })}
+            </AccordionDetails>
+          </Accordion>
+        );
+      })}
+    </div>
   );
 }
+
+// activity_name: "Quiz"
+// activity_type: "Practice"
+// due_date: "2021-07-30"
+// id: 3
+// module_id: 1
+// status: "Complete"

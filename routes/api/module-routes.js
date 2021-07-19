@@ -13,4 +13,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const moduleData = await Module.findByPk(req.params.id, {
+      include: [Activity],
+    });
+    res.status(200).json(moduleData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
