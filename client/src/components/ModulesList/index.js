@@ -8,10 +8,14 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import API from "../../utils/API";
+import "./style.css";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+    // cannot get this to work
+    fontFamily: 'Montserrat',
+    color:"red"
   },
 });
 
@@ -46,10 +50,10 @@ export default function BasicTable() {
   ];
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper}  id="table">
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <TableRow className="row">
             <TableCell align="left">Module Name</TableCell>
             {/* <TableCell align="right">Completion Status</TableCell>
             <TableCell align="right">Due Date</TableCell> */}
@@ -57,7 +61,7 @@ export default function BasicTable() {
         </TableHead>
         <TableBody>
           {modules.map((row) => (
-            <TableRow key={row.module}>
+            <TableRow className="row" key={row.module}>
               <TableCell align="left">{row.module_name}</TableCell>
               {/* <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">{row.due}</TableCell> */}

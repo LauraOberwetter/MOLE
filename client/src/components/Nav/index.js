@@ -2,12 +2,12 @@ import React from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
 import { Nav, Bars, NavMenu, NavBtn, NavBtnLink } from "./navElements";
-import logo from "./logo.png";
+import logo from "./logo.svg";
 
 class Navbar extends React.Component {
   render() {
     return (
-      <Nav>
+      <Nav className='border-bottom'>
         {/* logo */}
         <NavLink to="/" className="logo">
           <img src={logo} alt="HVPT Logo" />

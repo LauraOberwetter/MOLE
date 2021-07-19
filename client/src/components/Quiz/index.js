@@ -10,7 +10,7 @@ const StyledButton = withStyles({
 	  background: 'linear-gradient(45deg, #1E96FC 10%, #072AC8 90%)',
 	  borderRadius: 3,
 	  border: 0,
-	  color: 'white',
+	  color: '#FDF4E5',
 	  height: 60,
 	  padding: '10px 50px',
 	  margin: '20px',
@@ -23,14 +23,18 @@ const StyledButton = withStyles({
   })(Button);
 
 function Quiz(props) {	
-    const [quizProgress, setQuizProgress] = useState(0) //starting @ 0
-    const [quizComplete, setQuizComplete] = useState("")
+    const [quizProgress, setQuizProgress] = useState(0) //progress bar
+    const [quizComplete, setQuizComplete] = useState("") //quiz complete notification
+	  const [questionResult, setQuestionResult] = useState("")//quiz result notification
+
   function isCorrect(e) {
     console.log(e.target.dataset.id)
     if (e.target.dataset.id === props.question.correct_choice_id) {
       console.log("correct")
+      setQuestionResult("Correct")
     } else {
       console.log("incorrect")
+      setQuestionResult("Incorrect")
     }
     props.setCurrentQuestion(props.currentQuestion + 2);
     const nextQuestion = props.currentQuestion + 2;
@@ -48,7 +52,7 @@ function Quiz(props) {
  
     return (
       <>
-        <h3>Select the Correct Answer</h3>
+        {/* <h3>Select the Correct Answer</h3> */}
        
         {props.question &&<div className="answer-selection">         
             <StyledButton data-id={props.question.choice1_id} onClick={isCorrect}>{props.question.choices[0].japanese_label} </StyledButton>
@@ -63,6 +67,7 @@ function Quiz(props) {
 			margin="20px"
           />
           <h3>{quizComplete}</h3>
+          <h3>{questionResult}</h3>
         </div>
       </>
     );

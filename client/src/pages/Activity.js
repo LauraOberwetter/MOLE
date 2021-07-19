@@ -54,7 +54,7 @@ const Activity = () => {
 
     return (
         <>
-        <h5>Module 1: Activity 1</h5>        
+        <h5 style={{color: "#072AC8", padding:"25px", fontFamily: 'Playfair Display'}}>Module 1: Activity 1</h5>        
           <PlayAudio question={questions[currentQuestion]}/>
           <Quiz questions={questions} question={questions[currentQuestion]} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
         </>
