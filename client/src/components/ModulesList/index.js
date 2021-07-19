@@ -15,6 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import API from "../../utils/API";
 import "./style.css";
 
+
 // const useStyles = makeStyles({
 //   table: {
 //     minWidth: 650,
@@ -27,6 +28,7 @@ import "./style.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -58,6 +60,7 @@ export default function ModuleList() {
   };
 
   return (
+
     <div>
       {modules.map((item) => {
         return (
@@ -93,5 +96,6 @@ export default function ModuleList() {
         );
       })}
     </div>
+
   );
 }

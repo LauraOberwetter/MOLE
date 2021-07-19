@@ -7,6 +7,7 @@ import ModuleList from "../components/ModulesList";
 const Dashboard = () => {
   return (
     <Container fluid>
+
       <h1
         style={{
           color: "#072AC8",
@@ -17,6 +18,7 @@ const Dashboard = () => {
         My Learning Dashboard
       </h1>
       <ModuleList />
+
     </Container>
   );
 };
