@@ -36,8 +36,8 @@ function Quiz(props) {
       console.log("incorrect")
       setQuestionResult("Incorrect")
     }
-    props.setCurrentQuestion(props.currentQuestion + 2);
-    const nextQuestion = props.currentQuestion + 2;
+    props.setCurrentQuestion(props.currentQuestion + 1);
+    const nextQuestion = props.currentQuestion + 1;
 		const percentage = 100 / props.questions.length;
 		if (nextQuestion < props.questions.length) {
 			props.setCurrentQuestion(nextQuestion);
