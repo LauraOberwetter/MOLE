@@ -1,41 +1,41 @@
 [
   {
-    "legacy_id": "JA_01",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01XF1.wav",
     "choice1_id": "JA_01X",
     "choice2_id": "JA_01Y",
     "correctChoice_id": "JA_01X",
     "activity_id": 1
   },
   {
-    "legacy_id": "JA_01",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_01XM3.wav",
     "choice1_id": "JA_01X",
     "choice2_id": "JA_01Y",
     "correctChoice_id": "JA_01Y",
     "activity_id": 1
   },
   {
-    "legacy_id": "JA_03",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03XF1.wav",
     "choice1_id": "JA_03X",
     "choice2_id": "JA_03Y",
     "correctChoice_id": "JA_03X",
     "activity_id": 1
   },
   {
-    "legacy_id": "JA_03",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_03YF1.wav",
     "choice1_id": "JA_03X",
     "choice2_id": "JA_03Y",
     "correctChoice_id": "JA_03Y",
     "activity_id": 1
   },
   {
-    "legacy_id": "JA_05",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05XF1.wav",
     "choice1_id": "JA_05X",
     "choice2_id": "JA_05Y",
     "correctChoice_id": "JA_05X",
     "activity_id": 1
   },
   {
-    "legacy_id": "JA_05",
+    "legacy_id": "https://hvpt-portal-files.s3.us-east-2.amazonaws.com/JA_05YF1.wav",
     "choice1_id": "JA_05X",
     "choice2_id": "JA_05Y",
     "correctChoice_id": "JA_05Y",
