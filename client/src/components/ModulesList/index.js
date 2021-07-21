@@ -99,9 +99,6 @@ export default function ModuleList() {
                           Start
                         </Button>
                       </Link>
-                      {/* <Typography variant="button" className="spacing button">
-                        BUTTON
-                      </Typography>{" "} */}
                     </React.Fragment>
                   </AccordionDetails>
                 );
