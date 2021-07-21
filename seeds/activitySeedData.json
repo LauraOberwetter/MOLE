@@ -19,5 +19,47 @@
     "due_date": "7/30/2021",
     "status": "Complete",
     "module_id": 1
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Final",
+    "due_date": "7/30/2021",
+    "status": "Not Started",
+    "module_id": 2
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Practice",
+    "due_date": "7/30/2021",
+    "status": "In Progress",
+    "module_id": 2
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Practice",
+    "due_date": "7/30/2021",
+    "status": "Complete",
+    "module_id": 2
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Final",
+    "due_date": "7/30/2021",
+    "status": "Not Started",
+    "module_id": 3
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Practice",
+    "due_date": "7/30/2021",
+    "status": "In Progress",
+    "module_id": 3
+  },
+  {
+    "activity_name": "Quiz",
+    "activity_type": "Practice",
+    "due_date": "7/30/2021",
+    "status": "Complete",
+    "module_id": 3
   }
 ]
