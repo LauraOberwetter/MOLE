@@ -13,7 +13,14 @@ function Login() {
 
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h1
+        style={{
+          color: "#072AC8",
+          paddingTop: "35px",
+          paddingBottom: "35px",
+          fontFamily: "Playfair Display",
+        }}
+      >Please Log In</h1>
       <form>
         <label>
           <p>Username</p>

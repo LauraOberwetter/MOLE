@@ -2,16 +2,23 @@
   border-radius: 25px;
 }
 
-.row {
-  height: 80px;
-}
-
 .spacing {
   margin-left: 2vw !important;
+}
+
+#accordion {
+  border: black;
 }
 
 .moduleName {
   font-size: x-large !important;
   font-weight: bolder !important;
-  background-color: rgb(233, 233, 233) !important;
+  background-color: white !important;
+  height: 90px;  
+}
+
+.details {
+  background-color: rgb(236, 239, 243);
+  height: 75px;  
+  text-align: center;
 }

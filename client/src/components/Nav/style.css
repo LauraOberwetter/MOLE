@@ -5,16 +5,10 @@
     padding: 0;
 }
 
-/* why wont the logo move to the left */
-/* .logo {
-    float: left;
-    margin-left: 0;
-    margin-top: 1%
-} */
 
 img {
-    height: 130%;
-    width: 130%;
+  height: 140%;
+  
 }
 
 .navLink {

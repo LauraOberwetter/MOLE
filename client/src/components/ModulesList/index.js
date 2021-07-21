@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     subtitle1: {
       fontSize: 300,
+      fontFamily: "Montserrat",
     },
   },
   heading: {
@@ -68,14 +69,14 @@ export default function ModuleList() {
     <div>
       {modules.map((item) => {
         return (
-          <Accordion>
+          <Accordion id="accordion">
             <AccordionSummary
               className="moduleName"
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>
+              <Typography className={classes.heading} >
                 <span>{item.module_name}</span>
               </Typography>
             </AccordionSummary>
@@ -83,7 +84,7 @@ export default function ModuleList() {
             {item.activities.length > 0 &&
               item.activities.map((act) => {
                 return (
-                  <AccordionDetails>
+                  <AccordionDetails className="details">
                     <React.Fragment key={act.id}>
                       <Typography variant="subtitle1">
                         {act.activity_type} {act.activity_name}

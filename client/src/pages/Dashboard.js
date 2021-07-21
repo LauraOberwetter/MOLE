@@ -11,7 +11,8 @@ const Dashboard = () => {
       <h1
         style={{
           color: "#072AC8",
-          padding: "25px",
+          paddingTop: "35px",
+          paddingBottom: "35px",
           fontFamily: "Playfair Display",
         }}
       >
