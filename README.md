@@ -1,4 +1,4 @@
-# HVPT 
+# HVPT Portal
 
 ## Table of Contents
 - [Description](#description)
@@ -36,7 +36,7 @@ Packages include:
 <img width="1221" alt="HVPT-Activity" src="https://user-images.githubusercontent.com/75500770/126528778-99c5b56c-a8c6-405f-ba04-7f92518b2615.png">
 <img width="1216" alt="HVPT-Activity-Progress" src="https://user-images.githubusercontent.com/75500770/126528816-7055069e-b6c9-4bea-a47e-80a11a4ea562.png">
 
-https://user-images.githubusercontent.com/75500770/126528888-3c513e84-b2a5-42e9-8d39-794cdcb99b93.MP4
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/23666524/126534785-de9b8f1b-f4b5-44f1-b3f6-c25ff0d6ee63.gif)
 
  
 
