@@ -8,3 +8,6 @@ const withAuth = (req, res, next) => {
   };
   
   module.exports = withAuth;
+
+  // may not need auth file at all
+  
