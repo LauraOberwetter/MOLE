@@ -32,9 +32,12 @@ Packages include:
 ```React-Icons```  
 
 ## Preview
-![HVPT-Dashboard] (assets/HVPT-Dashboard.png)
-![HVPT-Activity] (assets/HVPT-Activity.png)
-![HVPT-Activity-Progress] (assets/HVPT-Activity-Progress.png)
+<img width="1210" alt="HVPT-Dashboard" src="https://user-images.githubusercontent.com/75500770/126528552-7a9dbba6-280c-4a7d-a809-3adf5d4a3b7e.png">
+<img width="1221" alt="HVPT-Activity" src="https://user-images.githubusercontent.com/75500770/126528778-99c5b56c-a8c6-405f-ba04-7f92518b2615.png">
+<img width="1216" alt="HVPT-Activity-Progress" src="https://user-images.githubusercontent.com/75500770/126528816-7055069e-b6c9-4bea-a47e-80a11a4ea562.png">
+
+https://user-images.githubusercontent.com/75500770/126528888-3c513e84-b2a5-42e9-8d39-794cdcb99b93.MP4
+
  
 
 ## Link
