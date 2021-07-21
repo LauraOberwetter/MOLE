@@ -64,6 +64,7 @@ function Quiz(props) {
             completed={quizProgress}
             width="97%"
             bgColor="#FFC600"
+            isLabelVisible={false}
 			      margin="20px"
           />
           {/* can we attach an id here so that the styling is only visible when the state is? */}
