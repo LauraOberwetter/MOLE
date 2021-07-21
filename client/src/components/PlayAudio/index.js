@@ -7,14 +7,15 @@ import API from "../../utils/API";
 
 function PlayAudio(props) {   
   return (
-    <div id="container">
-   {props.question &&
-    <ReactAudioPlayer
-      className="play-audio"
-      style={{backgroundColor: "#FFC600"}}
-      src={props.question.legacy_id}
-      autoPlay={false} //PREVENTED AUTOPLAY
-      controls
+    
+
+    <div id="container">{props.question &&
+      <ReactAudioPlayer
+        className="play-audio"
+        style={{backgroundColor: "#FFC600"}}
+        src={props.question.legacy_id}
+        autoPlay={false} //PREVENTED AUTOPLAY
+        controls
     />
   }</div>
   )

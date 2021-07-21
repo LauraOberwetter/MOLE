@@ -26,7 +26,8 @@ const Activity = () => {
 
     return (
         <>
-        <h5 style={{color: "#072AC8", padding:"25px", fontFamily: 'Playfair Display'}}>Module 1: Activity 1</h5>        
+        <h5 style={{color: "#072AC8", padding:"25px", fontFamily: 'Playfair Display'}}>Module 1: Activity 1</h5> 
+          <p style={{padding:"25px", fontFamily: 'Montserrat', border: "black", backgroundColor: "white", borderRadius: "10px", width:"90%", borderStyle:"solid", borderWidth:".2px", margin:"auto"}}>This training focuses on the difference between /ts/ and /s/, as in つうがく (‘tsuugaku (suru), ’going to school) and すうがく (‘suugaku,’ “math”). English grammar doesn’t allow for words to begin with a /ts/ sound, so English speakers simply ignore the &lt;t&gt;, as in the word “tsunami.” Try the training exercise below to test yourself. With practice, you can improve your listening and speaking at the same time. がんばりましょう！</p>       
           <PlayAudio question={questions[currentQuestion]}/>
           <Quiz questions={questions} question={questions[currentQuestion]} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
         </>
