@@ -16,5 +16,7 @@ export default {
   getActivities: function (id) {
     return axios.get("/api/activities/" + id);
   },
-
+  login: function (username, password) {
+    return axios.post("api/users/login", {data: {username, password}})
+  }
 };
