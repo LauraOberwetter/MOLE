@@ -10,6 +10,7 @@
     "bootstrap": "^5.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jspsych-react": "^0.3.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^16.13.1",

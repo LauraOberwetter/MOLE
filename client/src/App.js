@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
 import { Helmet } from "react-helmet";
+import JSPsych from "./components/JSPsych";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/activity" component={Activity} />
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/register" component={Register} />
+          <Route exact path="/jspsych" component={JSPsych} />
           <Route component={NotFound} />
         </Switch>
       </div>
