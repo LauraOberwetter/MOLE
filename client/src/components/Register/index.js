@@ -3,7 +3,6 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import "./style.css";
 
 const Register = () => {
@@ -82,6 +81,46 @@ const Register = () => {
               placeholder="Enter last name"
             />
           </Form.Group>
+          <Form.Group className="mb-3 mt-3" controlId="formBasicLanguage">
+            <Form.Label>Language</Form.Label>
+            <Form.Control
+              type="text"
+              name="language"
+              value={user.language}
+              onChange={changeHandler}
+              placeholder="Select language"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3 mt-3" controlId="formBasicCourse">
+            <Form.Label>Course</Form.Label>
+            <Form.Control
+              type="text"
+              name="course"
+              value={user.course}
+              onChange={changeHandler}
+              placeholder="Select course"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3 mt-3" controlId="formBasicInstructor">
+            <Form.Label>Instructor</Form.Label>
+            <Form.Control
+              type="text"
+              name="instructor"
+              value={user.instructor}
+              onChange={changeHandler}
+              placeholder="Select instructor"
+            />
+            <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={changeHandler}
+                placeholder="Enter email"
+              />
+            </Form.Group>
+          </Form.Group>
           <Form.Group className="mb-3 mt-3" controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -90,16 +129,6 @@ const Register = () => {
               value={user.username}
               onChange={changeHandler}
               placeholder="Enter username"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              value={user.email}
-              onChange={changeHandler}
-              placeholder="Enter email"
             />
           </Form.Group>
           <Form.Group className="mb-3 mt-3" controlId="formBasicPassword">
@@ -115,6 +144,7 @@ const Register = () => {
           <Button type="submit">Submit</Button>
         </Form>
       </Container>
+
       {/* <Form>
         <Form.Group
           style={{ display: "flex", flexDirection: "column" }}
