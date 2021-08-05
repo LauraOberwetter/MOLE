@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SP Listening Training: Stress</title>
+    <meta charset="UTF-8" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="jspsych-6.2.0/jspsych.js"></script>
+    <script src="jspsych-6.2.0/plugins/jspsych-fullscreen.js"></script>
+    <script src="jspsych-6.2.0/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych-6.2.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.2.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.2.0/plugins/jspsych-audio-button-response.js"></script>
+    <!-- <link rel="stylesheet" href="jspsych-6.2.0/css/jspsych.css"></link> -->
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    var timeline = [];
+
+    //make fullscreen
+    timeline.push({
+      type: "fullscreen",
+      fullscreen_mode: true,
+      message: "Fullscreen Mode ",
+      button_label: "Activate",
+    });
+
+    //media preloading
+    var audio = [
+      "sound/SA_01YM1.wav",
+      "sound/SA_01YM2.wav",
+      "sound/SA_01YF1.wav",
+      "sound/SA_01YF2.wav",
+      "sound/SA_01ZM1.wav",
+      "sound/SA_01ZM2.wav",
+      "sound/SA_01ZF1.wav",
+      "sound/SA_01ZF2.wav",
+      "sound/SA_02YM1.wav",
+      "sound/SA_02YM2.wav",
+      "sound/SA_02YF1.wav",
+      "sound/SA_02YF2.wav",
+      "sound/SA_02ZM1.wav",
+      "sound/SA_02ZM2.wav",
+      "sound/SA_02ZF1.wav",
+      "sound/SA_02ZF2.wav",
+      "sound/SA_07XM1.wav",
+      "sound/SA_07XM2.wav",
+      "sound/SA_07XF1.wav",
+      "sound/SA_07XF2.wav",
+      "sound/SA_07ZM1.wav",
+      "sound/SA_07ZM2.wav",
+      "sound/SA_07ZF1.wav",
+      "sound/SA_07ZF2.wav",
+      "sound/SA_08XM1.wav",
+      "sound/SA_08XM2.wav",
+      "sound/SA_08XF1.wav",
+      "sound/SA_08XF2.wav",
+      "sound/SA_08ZM1.wav",
+      "sound/SA_08ZM2.wav",
+      "sound/SA_08ZF1.wav",
+      "sound/SA_08ZF2.wav",
+      "sound/SA_13XM1.wav",
+      "sound/SA_13XM2.wav",
+      "sound/SA_13XF1.wav",
+      "sound/SA_13XF2.wav",
+      "sound/SA_13YM1.wav",
+      "sound/SA_13YM2.wav",
+      "sound/SA_13YF1.wav",
+      "sound/SA_13YF2.wav",
+      "sound/SA_14XM1.wav",
+      "sound/SA_14XM2.wav",
+      "sound/SA_14XF1.wav",
+      "sound/SA_14XF2.wav",
+      "sound/SA_14YM1.wav",
+      "sound/SA_14YM2.wav",
+      "sound/SA_14YF1.wav",
+      "sound/SA_14YF2.wav",
+      "sound/SA_03YM1.wav",
+      "sound/SA_03YM2.wav",
+      "sound/SA_03YF1.wav",
+      "sound/SA_03YF2.wav",
+      "sound/SA_03ZM1.wav",
+      "sound/SA_03ZM2.wav",
+      "sound/SA_03ZF1.wav",
+      "sound/SA_03ZF2.wav",
+      "sound/SA_04YM1.wav",
+      "sound/SA_04YM2.wav",
+      "sound/SA_04YF1.wav",
+      "sound/SA_04YF2.wav",
+      "sound/SA_04ZM1.wav",
+      "sound/SA_04ZM2.wav",
+      "sound/SA_04ZF1.wav",
+      "sound/SA_04ZF2.wav",
+      "sound/SA_09XM1.wav",
+      "sound/SA_09XM2.wav",
+      "sound/SA_09XF1.wav",
+      "sound/SA_09XF2.wav",
+      "sound/SA_09ZM1.wav",
+      "sound/SA_09ZM2.wav",
+      "sound/SA_09ZF1.wav",
+      "sound/SA_09ZF2.wav",
+      "sound/SA_10XM1.wav",
+      "sound/SA_10XM2.wav",
+      "sound/SA_10XF1.wav",
+      "sound/SA_10XF2.wav",
+      "sound/SA_10ZM1.wav",
+      "sound/SA_10ZM2.wav",
+      "sound/SA_10ZF1.wav",
+      "sound/SA_10ZF2.wav",
+      "sound/SA_15XM1.wav",
+      "sound/SA_15XM2.wav",
+      "sound/SA_15XF1.wav",
+      "sound/SA_15XF2.wav",
+      "sound/SA_15YM1.wav",
+      "sound/SA_15YM2.wav",
+      "sound/SA_15YF1.wav",
+      "sound/SA_15YF2.wav",
+      "sound/SA_16XM1.wav",
+      "sound/SA_16XM2.wav",
+      "sound/SA_16XF1.wav",
+      "sound/SA_16XF2.wav",
+      "sound/SA_16YM1.wav",
+      "sound/SA_16YM2.wav",
+      "sound/SA_16YF1.wav",
+      "sound/SA_16YF2.wav",
+    ];
+
+    //input what type of training session this is
+    var session = "stress";
+
+    //subject ID entry
+    var get_subject_id = {
+      type: "survey-text",
+      questions: [
+        {
+          prompt:
+            "<p><strong>Entrenamiento de percepción: la acentuación</strong></p>\
+            Por favor, introduce el número de identificación que tu instructora te dio. <br> Please enter the ID number given to you by your instructor.",
+          required: true,
+        },
+      ],
+      on_finish: function (data) {
+        var subject_id = JSON.parse(data.responses).Q0.trim(); // removes extra whitespace.
+        jsPsych.data.addProperties({ subject_id: subject_id });
+      },
+    };
+    timeline.push(get_subject_id);
+
+    // add type of training session
+    jsPsych.data.addProperties({
+      session: session,
+    });
+
+    // instructions
+    var hvpt_instructions = {
+      type: "html-button-response",
+      stimulus:
+        '<center><p> En esta actividad, escucharás una palabra y verás dos opciones en la pantalla. <br> In this activity, you will hear a word and see two options on the screen. </p> \
+        Haz click en la palabra que escuchas. <br> Click on the word that you heard. \
+        <p>Haz click en "Comenzar" para hacer el entrenamiento. <br> Click "Comenzar" to begin the training.</p></center>',
+      choices: ["Comenzar >"],
+      is_html: true,
+    };
+    timeline.push(hvpt_instructions);
+
+    // block for stimuli
+    var hvpt_training_stimuli = [
+      {
+        stimulus: "sound/SA_01YM1.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 0,
+          word: "HAble",
+          item_code: "A_01",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01ZM1.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 1,
+          word: "haBLE",
+          item_code: "A_01",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_02YM1.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 0,
+          word: "aporTAra",
+          item_code: "A_02",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_02ZM1.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 1,
+          word: "aportaRA",
+          item_code: "A_02",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_07XM1.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 0,
+          word: "TERmino",
+          item_code: "A_07",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_07ZM1.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 1,
+          word: "termiNO",
+          item_code: "A_07",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_08XM1.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 0,
+          word: "PUblico",
+          item_code: "A_08",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_08ZM1.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 1,
+          word: "publiCO",
+          item_code: "A_08",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_13XM1.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 0,
+          word: "PRACtica",
+          item_code: "A_13",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_13YM1.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 1,
+          word: "pracTIca",
+          item_code: "A_13",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_14XM1.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 0,
+          word: "DIAlogo",
+          item_code: "A_14",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_14YM1.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 1,
+          word: "diaLOgo",
+          item_code: "A_14",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01YM2.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 0,
+          word: "HAble",
+          item_code: "A_01",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01ZM2.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 1,
+          word: "haBLE",
+          item_code: "A_01",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_02YM2.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 0,
+          word: "aporTAra",
+          item_code: "A_02",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_02ZM2.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 1,
+          word: "aportaRA",
+          item_code: "A_02",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_07XM2.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 0,
+          word: "TERmino",
+          item_code: "A_07",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_07ZM2.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 1,
+          word: "termiNO",
+          item_code: "A_07",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_08XM2.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 0,
+          word: "PUblico",
+          item_code: "A_08",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_08ZM2.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 1,
+          word: "publiCO",
+          item_code: "A_08",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_13XM2.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 0,
+          word: "PRACtica",
+          item_code: "A_13",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_13YM2.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 1,
+          word: "pracTIca",
+          item_code: "A_13",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_14XM2.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 0,
+          word: "DIAlogo",
+          item_code: "A_14",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_14YM2.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 1,
+          word: "diaLOgo",
+          item_code: "A_14",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01YF1.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 0,
+          word: "HAble",
+          item_code: "A_01",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01ZF1.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 1,
+          word: "haBLE",
+          item_code: "A_01",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_02YF1.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 0,
+          word: "aporTAra",
+          item_code: "A_02",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_02ZF1.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 1,
+          word: "aportaRA",
+          item_code: "A_02",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_07XF1.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 0,
+          word: "TERmino",
+          item_code: "A_07",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_07ZF1.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 1,
+          word: "termiNO",
+          item_code: "A_07",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_08XF1.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 0,
+          word: "PUblico",
+          item_code: "A_08",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_08ZF1.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 1,
+          word: "publiCO",
+          item_code: "A_08",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_13XF1.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 0,
+          word: "PRACtica",
+          item_code: "A_13",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_13YF1.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 1,
+          word: "pracTIca",
+          item_code: "A_13",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_14XF1.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 0,
+          word: "DIAlogo",
+          item_code: "A_14",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_14YF1.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 1,
+          word: "diaLOgo",
+          item_code: "A_14",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01YF2.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 0,
+          word: "HAble",
+          item_code: "A_01",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_01ZF2.wav",
+        choices: ["hable", "hablé"],
+        data: {
+          correct_response: 1,
+          word: "haBLE",
+          item_code: "A_01",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_02YF2.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 0,
+          word: "aporTAra",
+          item_code: "A_02",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_02ZF2.wav",
+        choices: ["aportara", "aportará"],
+        data: {
+          correct_response: 1,
+          word: "aportaRA",
+          item_code: "A_02",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_07XF2.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 0,
+          word: "TERmino",
+          item_code: "A_07",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_07ZF2.wav",
+        choices: ["término", "terminó"],
+        data: {
+          correct_response: 1,
+          word: "termiNO",
+          item_code: "A_07",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_08XF2.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 0,
+          word: "PUblico",
+          item_code: "A_08",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_08ZF2.wav",
+        choices: ["público", "publicó"],
+        data: {
+          correct_response: 1,
+          word: "publiCO",
+          item_code: "A_08",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_13XF2.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 0,
+          word: "PRACtica",
+          item_code: "A_13",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_13YF2.wav",
+        choices: ["práctica", "practica"],
+        data: {
+          correct_response: 1,
+          word: "pracTIca",
+          item_code: "A_13",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_14XF2.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 0,
+          word: "DIAlogo",
+          item_code: "A_14",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_14YF2.wav",
+        choices: ["diálogo", "dialogo"],
+        data: {
+          correct_response: 1,
+          word: "diaLOgo",
+          item_code: "A_14",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03YM1.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 0,
+          word: "contiNUo",
+          item_code: "A_03",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03ZM1.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 1,
+          word: "continuO",
+          item_code: "A_03",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_04YM1.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 0,
+          word: "SUdo",
+          item_code: "A_04",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_04ZM1.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 1,
+          word: "suDO",
+          item_code: "A_04",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_09XM1.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 0,
+          word: "INtegro",
+          item_code: "A_09",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_09ZM1.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 1,
+          word: "inteGRO",
+          item_code: "A_09",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_10XM1.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 0,
+          word: "Exito",
+          item_code: "A_10",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_10ZM1.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 1,
+          word: "exciTO",
+          item_code: "A_10",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_15XM1.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 0,
+          word: "Operas",
+          item_code: "A_15",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_15YM1.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 1,
+          word: "oPEras",
+          item_code: "A_15",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_16XM1.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 0,
+          word: "esTImulo",
+          item_code: "A_16",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_16YM1.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 1,
+          word: "estiMUlo",
+          item_code: "A_16",
+          speaker: "M1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03YM2.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 0,
+          word: "contiNUo",
+          item_code: "A_03",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03ZM2.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 1,
+          word: "continuO",
+          item_code: "A_03",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_04YM2.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 0,
+          word: "SUdo",
+          item_code: "A_04",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_04ZM2.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 1,
+          word: "suDO",
+          item_code: "A_04",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_09XM2.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 0,
+          word: "INtegro",
+          item_code: "A_09",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_09ZM2.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 1,
+          word: "inteGRO",
+          item_code: "A_09",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_10XM2.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 0,
+          word: "Exito",
+          item_code: "A_10",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_10ZM2.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 1,
+          word: "exciTO",
+          item_code: "A_10",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_15XM2.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 0,
+          word: "Operas",
+          item_code: "A_15",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_15YM2.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 1,
+          word: "oPEras",
+          item_code: "A_15",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_16XM2.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 0,
+          word: "esTImulo",
+          item_code: "A_16",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_16YM2.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 1,
+          word: "estiMUlo",
+          item_code: "A_16",
+          speaker: "M2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03YF1.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 0,
+          word: "contiNUo",
+          item_code: "A_03",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03ZF1.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 1,
+          word: "continuO",
+          item_code: "A_03",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_04YF1.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 0,
+          word: "SUdo",
+          item_code: "A_04",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_04ZF1.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 1,
+          word: "suDO",
+          item_code: "A_04",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_09XF1.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 0,
+          word: "INtegro",
+          item_code: "A_09",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_09ZF1.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 1,
+          word: "inteGRO",
+          item_code: "A_09",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_10XF1.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 0,
+          word: "Exito",
+          item_code: "A_10",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_10ZF1.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 1,
+          word: "exciTO",
+          item_code: "A_10",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_15XF1.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 0,
+          word: "Operas",
+          item_code: "A_15",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_15YF1.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 1,
+          word: "oPEras",
+          item_code: "A_15",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_16XF1.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 0,
+          word: "esTImulo",
+          item_code: "A_16",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_16YF1.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 1,
+          word: "estiMUlo",
+          item_code: "A_16",
+          speaker: "F1",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03YF2.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 0,
+          word: "contiNUo",
+          item_code: "A_03",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_03ZF2.wav",
+        choices: ["continúo", "continuó"],
+        data: {
+          correct_response: 1,
+          word: "continuO",
+          item_code: "A_03",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_04YF2.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 0,
+          word: "SUdo",
+          item_code: "A_04",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_04ZF2.wav",
+        choices: ["sudo", "sudó"],
+        data: {
+          correct_response: 1,
+          word: "suDO",
+          item_code: "A_04",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_09XF2.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 0,
+          word: "INtegro",
+          item_code: "A_09",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_09ZF2.wav",
+        choices: ["íntegro", "integró"],
+        data: {
+          correct_response: 1,
+          word: "inteGRO",
+          item_code: "A_09",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_10XF2.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 0,
+          word: "Exito",
+          item_code: "A_10",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_10ZF2.wav",
+        choices: ["éxito", "excitó"],
+        data: {
+          correct_response: 1,
+          word: "exciTO",
+          item_code: "A_10",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AZ",
+        },
+      },
+      {
+        stimulus: "sound/SA_15XF2.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 0,
+          word: "Operas",
+          item_code: "A_15",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_15YF2.wav",
+        choices: ["óperas", "operas"],
+        data: {
+          correct_response: 1,
+          word: "oPEras",
+          item_code: "A_15",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+      {
+        stimulus: "sound/SA_16XF2.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 0,
+          word: "esTImulo",
+          item_code: "A_16",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AX",
+        },
+      },
+      {
+        stimulus: "sound/SA_16YF2.wav",
+        choices: ["estímulo", "estimulo"],
+        data: {
+          correct_response: 1,
+          word: "estiMUlo",
+          item_code: "A_16",
+          speaker: "F2",
+          trial_part: "test",
+          sound: "AY",
+        },
+      },
+    ];
+
+    var hvpt_training = {
+      type: "audio-button-response",
+      stimulus: jsPsych.timelineVariable("stimulus"),
+      data: jsPsych.timelineVariable("data"),
+      prompt:
+        '<p style="font-size:150%"><br><br>¿Qué dijo la persona?<br><br>What did the person say?</p><p style="font-size:150%"</p>',
+      is_html: true,
+      button_html:
+        '<button class="jspsych-btn"><p style="font-size:400%; width:350px; height:100px">%choice%</p></button>',
+      margin_vertical: "50px",
+      margin_horizontal: "50px",
+      trial_duration: 6500,
+      response_ends_trial: true,
+      choices: jsPsych.timelineVariable("choices"),
+      on_finish: function (data) {
+        if (data.button_pressed == data.correct_response) {
+          jsPsych.data.addDataToLastTrial({ correct: 1 });
+        } else if (data.button_pressed == -1) {
+          jsPsych.data.addDataToLastTrial({ correct: "timeout" });
+        } else {
+          jsPsych.data.addDataToLastTrial({ correct: 0 });
+        }
+      },
+    };
+
+    /*feedback*/
+    var feedback = {
+      type: "html-keyboard-response",
+      stimulus: function () {
+        var trial_data = jsPsych.data.getLastTrialData();
+        console.log(trial_data.values()[0].correct);
+        if (trial_data.values()[0].correct == 1) {
+          return '<p style="font-size:150%">¡Correcto!</p><p style="font-size:150%"</p>';
+        } else if (trial_data.values()[0].correct == "timeout") {
+          return '<p style="font-size:150%">¡Demasiado lento!</p><p style="font-size:150%"</p>';
+        } else {
+          return '<p style="font-size:150%">Incorrecto</p><p style="font-size:150%"</p>';
+        }
+      },
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 1000,
+      data: { trial_part: "feedback" },
+    };
+
+    //Create a pause between trials with nothing on screen
+    var feedback_pause = {
+      type: "html-keyboard-response",
+      stimulus: "",
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 500,
+    };
+
+    //add times taken
+    var times_taken = 0;
+
+    var hvpt_training_procedure = {
+      timeline: [hvpt_training, feedback, feedback_pause],
+      timeline_variables: hvpt_training_stimuli,
+      randomize_order: true,
+    };
+
+    var hvpt_training_cutoff = 0.9;
+
+    var repeat_message = {
+      timeline: [
+        {
+          type: "html-button-response",
+          stimulus:
+            '<center><p>Tuviste muchos errores en en el entrenamiento. <br> You had too many mistakes on the training. \
+      <br><br>Haz click en "Continuar" para repetir el entrenamiento. <br> Click "Continuar" to repeat the training.</p></center>',
+          choices: ["Continuar >"],
+          is_html: true,
+        },
+      ],
+      conditional_function: function () {
+        var data = jsPsych.data.getLastTimelineData();
+        var correct = data.filter({ correct: 1 }).count();
+        var incorrect = data.filter({ correct: 0 }).count();
+        var timeouts = data.filter({ correct: "timeout" }).count();
+        return (
+          correct / (correct + incorrect + timeouts) < hvpt_training_cutoff
+        );
+      },
+    };
+
+    var training_check = {
+      timeline: [hvpt_training_procedure, repeat_message],
+      loop_function: function (data) {
+        times_taken++;
+        jsPsych.data.get().addToLast({ times_taken: times_taken });
+        var correct = data.filter({ correct: 1 }).count();
+        var incorrect = data.filter({ correct: 0 }).count();
+        var timeouts = data.filter({ correct: "timeout" }).count();
+        return (
+          correct / (correct + incorrect + timeouts) < hvpt_training_cutoff
+        );
+      },
+    };
+    timeline.push(training_check);
+
+    /*calculate times taken*/
+    var calc_times = {
+      type: "html-keyboard-response",
+      stimulus: "",
+      on_finish: function () {
+        var times_taken = jsPsych.data.get().select("times_taken").values;
+        if (times_taken.length > 1) {
+          times_taken = times_taken[times_taken.length - 1];
+        } else {
+          times_taken = times_taken[0];
+        }
+        jsPsych.data.addDataToLastTrial({ times_taken: times_taken });
+        console.log(times_taken);
+      },
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 100,
+    };
+    timeline.push(calc_times);
+
+    // training_done
+    var instructions_end_block = {
+      type: "html-keyboard-response",
+      stimulus: function () {
+        var data = jsPsych.data.getLastTimelineData();
+        var subject_id = jsPsych.data.get().select("subject_id").values[0];
+        console.log(subject_id);
+        var correct = data.filter({ correct: 1 }).count();
+        var incorrect = data.filter({ correct: 0 }).count();
+        var timeouts = data.filter({ correct: "timeout" }).count();
+        var decimal = correct / (correct + incorrect + timeouts);
+        var percent = decimal * 100;
+        var date = Date().toLocaleString("en-US", {
+          timeZone: "America/New_York",
+        });
+        if (times_taken == 1) {
+          return `<p style="font-size:150%">¡Bien hecho, ${subject_id}!</p><p style="font-size:150%">Terminaste el entrenamiento de acentuación. Hiciste el entrenamiento ${times_taken} vez. <br> You have completed the training on ${session}. You took the training ${times_taken} time.</p>\
+                <p style="font-size:150%">Your score is:</p><p style="font-size:150%"</p> \n<p style="font-size:150%">${percent}%</p><br>${date}`;
+        } else {
+          return `<p style="font-size:150%">¡Bien hecho, ${subject_id}!</p><p style="font-size:150%">Terminaste el entrenamiento de acentuación con al menos 90%. Hiciste el entrenamiento ${times_taken} veces. <br> You have completed the training on ${session} with at least 90% accuracy. You took the training ${times_taken} times.</p>\
+                <p style="font-size:150%">Your average over the whole session is:</p><p style="font-size:150%"</p> \n<p style="font-size:150%">${percent}%</p><br>${date}`;
+        }
+      },
+      choices: jsPsych.NO_KEYS,
+      is_html: true,
+    };
+    timeline.push(instructions_end_block);
+
+    function saveData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "write_data.php"); // change 'write_data.php' to point to php script.
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+          console.log(response.success);
+        }
+      };
+      xhr.send(jsPsych.data.getLastTrialData().json());
+    }
+
+    /* start experiment */
+    jsPsych.init({
+      timeline: timeline,
+      show_progress_bar: false,
+      preload_audio: audio,
+      on_trial_finish: saveData,
+    });
+  </script>
+</html>

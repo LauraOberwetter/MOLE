@@ -1,13 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
 class User extends Model {
-checkPassword(loginPw) {
-  return bcrypt.compareSync(loginPw, this.password);
-};
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
-
 
 User.init(
   {
@@ -25,11 +24,15 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    username: {
+    language: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
+    course: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    instructor: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -41,16 +44,17 @@ User.init(
         isEmail: true,
       },
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     opt_in: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
-    },
-    course_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "course",
-        key: "id",
-      },
     },
   },
 
@@ -61,11 +65,13 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },
-
 
     sequelize,
     timestamps: false,

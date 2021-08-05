@@ -2,46 +2,56 @@
   {
     "first_name": "Rebecca",
     "last_name": "Smith",
+    "language": "Japanese",
+    "course": "Japanese 101",
+    "instructor": "John Reynolds",
+    "email": "rsmith@university.edu",
     "username": "rsmith",
     "password": "password1",
-    "email": "rsmith@university.edu",
-    "opt_in": 1,
-    "course_id": 1
+    "opt_in": 1
   },
   {
-    "first_name": "Ellen",
-    "last_name": "Wilder",
-    "username": "ewilder",
-    "password": "password2",
-    "email": "ewilder@university.edu",
-    "opt_in": 0,
-    "course_id": 1
-  },
-  {
-    "first_name": "Terrence",
-    "last_name": "Howard",
-    "username": "thoward",
-    "password": "password3",
-    "email": "thoweard@university.edu",
-    "opt_in": 1,
-    "course_id": 1
-  },
-  {
-    "first_name": "Paul",
+    "first_name": "Iris",
     "last_name": "Johnson",
-    "username": "pjohnson",
-    "password": "password4",
-    "email": "pjohnson@university.edu",
-    "opt_in": 1,
-    "course_id": 1
+    "language": "Japanese",
+    "course": "Japanese 101",
+    "instructor": "John Reynolds",
+    "email": "ijohnson@university.edu",
+    "username": "ijohnson",
+    "password": "password2",
+    "opt_in": 1
   },
   {
-    "first_name": "Sarah",
-    "last_name": "Patterson",
-    "username": "spatterson",
+    "first_name": "Nicholas",
+    "last_name": "Bradley",
+    "language": "French",
+    "course": "French 101",
+    "instructor": "Margaret Thompson",
+    "email": "nbradley@university.edu",
+    "username": "nbradley",
+    "password": "password3",
+    "opt_in": 0
+  },
+  {
+    "first_name": "Andrew",
+    "last_name": "Jones",
+    "language": "Spanish",
+    "course": "Spanish 101",
+    "instructor": "Peter Phillips",
+    "email": "ajones@university.edu",
+    "username": "ajones",
+    "password": "password4",
+    "opt_in": 1
+  },
+  {
+    "first_name": "Timothy",
+    "last_name": "Olson",
+    "language": "Spanish",
+    "course": "Spanish 101",
+    "instructor": "Peter Phillips",
+    "email": "tolson@university.edu",
+    "username": "tolson",
     "password": "password5",
-    "email": "spatterson@university.edu",
-    "opt_in": 1,
-    "course_id": 1
+    "opt_in": 1
   }
 ]
