@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div>
         <Helmet>
-          <style>{"body { background-color:#FDF4E5; }"}</style>
+          <style>{"body { background-color:#FAF3F0; }"}</style>
         </Helmet>
         <Nav />
         <Switch>

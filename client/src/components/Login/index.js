@@ -15,10 +15,10 @@ function Login() {
     <div className="login-wrapper">
       <h1
         style={{
-          color: "#072AC8",
+          color: "#1F4D19",
           paddingTop: "35px",
           paddingBottom: "35px",
-          fontFamily: "Playfair Display",
+          fontFamily: 'Zilla Slab',
         }}
       >Please Log In</h1>
       <form>

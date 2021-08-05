@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     subtitle1: {
       fontSize: 300,
-      fontFamily: "Montserrat",
+      fontFamily: "Roboto",
     },
   },
   heading: {
