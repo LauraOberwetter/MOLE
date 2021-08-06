@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Consent from "./components/Consent";
+//import Dashboard from "./pages/Dashboard";
 // import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from "./pages/NotFound";
@@ -18,8 +19,9 @@ function App() {
         </Helmet>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/" component={Consent} />
+          {/* clean this up later...just replaced Dashboard with Consent comp */}
+          <Route exact path="/dashboard" component={Consent} />
           {/* update these pages to take in parameters to display based on the selected module or activity */}
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/register" component={Register} />
