@@ -20,8 +20,8 @@ class Navbar extends React.Component {
         {/* </div> */}
         {/* div for wrapping links */}
         <NavMenu className="nav">
-          <NavLink className="navLink" to="/">
-            Dashboard{" "}
+          <NavLink className="navLink" to="/login">
+            Already Registered? Sign In Here!{" "}
           </NavLink>
         </NavMenu>
       </Nav>

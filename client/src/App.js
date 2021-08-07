@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Consent from "./components/Consent";
-// import Login from "./components/Login";
-// import Register from "./components/Register";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import RegisterLogin from "./pages/RegisterLogin";
 import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
@@ -55,8 +55,8 @@ function App() {
             />
           </Route>
           <Route exact path="/dashboard" component={Dashboard} />
-          {/* <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} /> */}
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register}/>
           <Route exact path="/jspsych" component={JSPsych} />
           <Route component={NotFound} />
         </Switch>
