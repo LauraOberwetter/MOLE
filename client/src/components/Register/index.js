@@ -3,20 +3,26 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import "./style.css";
 
-const Register = () => {
+const Register = ({ changeScreen, setUserLogged, userLogged }) => {
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
     username: "",
     email: "",
+    language: "",
+    course: "",
+    instructor: "",
     password: "",
   });
 
   const [load, setLoad] = useState(0);
 
   const [users, setUsers] = useState([]);
+  // @INCOMPLETE remove this before final version
   useEffect(() => {
     axios
       .get("http://localhost:3001/api/users")
@@ -30,7 +36,7 @@ const Register = () => {
 
   const submitUser = (e) => {
     e.preventDefault();
-
+    console.log(user);
     axios
       .post("http://localhost:3001/api/users", user)
       .then((res) => {
@@ -39,9 +45,14 @@ const Register = () => {
           last_name: "",
           username: "",
           email: "",
+          language: "",
+          course: "",
+          instructor: "",
           password: "",
         });
         console.log(res);
+        localStorage.setItem("user", JSON.stringify(res.data.user.id));
+        userLogged === 0 ? setUserLogged(1) : setUserLogged(0);
         load === 0 ? setLoad(1) : setLoad(0);
       })
       .catch((err) => {
@@ -60,66 +71,46 @@ const Register = () => {
   return (
     <div>
       <Container>
-        <Form style={{ width: "35%" }} onSubmit={submitUser}>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicFirstName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="first_name"
-              value={user.first_name}
-              onChange={changeHandler}
-              placeholder="Enter first name"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="last_name"
-              value={user.last_name}
-              onChange={changeHandler}
-              placeholder="Enter last name"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicLanguage">
-            <Form.Label>Language</Form.Label>
-            <Form.Control
-              type="text"
-              name="language"
-              value={user.language}
-              onChange={changeHandler}
-              placeholder="Select language"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicCourse">
-            <Form.Label>Course</Form.Label>
-            <Form.Control
-              type="text"
-              name="course"
-              value={user.course}
-              onChange={changeHandler}
-              placeholder="Select course"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicInstructor">
-            <Form.Label>Instructor</Form.Label>
-            <Form.Control
-              type="text"
-              name="instructor"
-              value={user.instructor}
-              onChange={changeHandler}
-              placeholder="Select instructor"
-            />
-            <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
+        <Form style={{ width: "75%" }} onSubmit={submitUser}>
+          <Row className="mb-3">
+            <Form.Group
+              as={Col}
+              className="mb-3 mt-3"
+              controlId="formBasicFirstName"
+            >
+              <Form.Label>First Name</Form.Label>
               <Form.Control
-                type="email"
-                name="email"
-                value={user.email}
+                type="text"
+                name="first_name"
+                value={user.first_name}
                 onChange={changeHandler}
-                placeholder="Enter email"
+                placeholder="Enter first name"
               />
             </Form.Group>
+            <Form.Group
+              as={Col}
+              className="mb-3 mt-3"
+              controlId="formBasicLastName"
+            >
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="last_name"
+                value={user.last_name}
+                onChange={changeHandler}
+                placeholder="Enter last name"
+              />
+            </Form.Group>
+          </Row>
+          <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={user.email}
+              onChange={changeHandler}
+              placeholder="Enter email"
+            />
           </Form.Group>
           <Form.Group className="mb-3 mt-3" controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
@@ -141,11 +132,78 @@ const Register = () => {
               placeholder="Enter password"
             />
           </Form.Group>
+          <Row className="mb-3">
+            <Form.Group
+              as={Col}
+              className="mb-3 mt-3"
+              controlId="formBasicLanguage"
+            >
+              <Form.Label>Language</Form.Label>
+              <Form.Control
+                as="select"
+                name="language"
+                onChange={changeHandler}
+                aria-label="Language"
+              >
+                <option>Select Language</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Japanese">Japanese</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              className="mb-3 mt-3"
+              controlId="formBasicCourse"
+            >
+              <Form.Label>Course</Form.Label>
+              <Form.Control
+                as="select"
+                name="course"
+                onChange={changeHandler}
+                aria-label="Course"
+              >
+                <option>Select Course</option>
+                <option value="French">French 101</option>
+                <option value="Spanish">Spanish 101</option>
+                <option value="Japanese">Japanese 101</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              className="mb-3 mt-3"
+              controlId="formBasicInstructor"
+            >
+              <Form.Label>Instructor</Form.Label>
+              <Form.Control
+                as="select"
+                name="language"
+                onChange={changeHandler}
+                aria-label="Language"
+              >
+                <option>Select Intructor</option>
+                <option value="French">French Instructor</option>
+                <option value="Spanish">Spanish Instructor</option>
+                <option value="Japanese">Japanese Instructor</option>
+              </Form.Control>
+            </Form.Group>
+          </Row>
           <Button type="submit">Submit</Button>
         </Form>
       </Container>
+      <Button
+        onClick={() => {
+          changeScreen("login");
+        }}
+      >
+        Login
+      </Button>
+    </div>
+  );
+};
 
-      {/* <Form>
+{
+  /* <Form>
         <Form.Group
           style={{ display: "flex", flexDirection: "column" }}
           onSubmit={submitUser}
@@ -188,9 +246,7 @@ const Register = () => {
           />
           <button type="submit">Submit</button>
         </Form.Group>
-      </Form> */}
-    </div>
-  );
-};
+      </Form> */
+}
 
 export default Register;

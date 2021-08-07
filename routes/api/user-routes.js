@@ -5,21 +5,34 @@ const { User } = require("../../models");
 // ******
 // Begin added code for login/logout
 
+// register User
 router.post("/", async (req, res) => {
-  try {
-    console.log(req.body);
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+  console.log(req.body);
+  // check to see if user is unique
+  const userEmailExists = await User.findOne({ email: req.body.email });
+  if (userEmailExists === null) {
+    console.log(userEmailExists);
+    return res.status(401).send({ error: "Email already exists" });
   }
+  const usernameExists = await User.findOne({ username: req.body.username });
+  if (usernameExists === null) {
+    console.log(usernameExists);
+    return res.status(401).send({ error: "Username already exists" });
+  }
+
+  User.create(req.body)
+    .then((userData) => {
+      console.log(userData);
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        res.json({ user: userData, message: "You are now registered!" });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send(err);
+    });
 });
 
 router.post("/login", async (req, res) => {
@@ -48,11 +61,13 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res.json({ user: userData, message: "You are now logged in!" });
     });
+    console.log("You are now logged in!");
+    console.log(userData);
   } catch (err) {
     res.status(400).json(err);
+    console.log(err);
   }
 });
 
