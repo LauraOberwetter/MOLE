@@ -1,0 +1,27 @@
+:root {
+    --blue: #7498DA;
+    --brown: #593431;
+    --pink: #FAF3F0;
+}
+
+.btn {
+    font-family: "Roboto";
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    transform: translateY(2px);
+}
+
+/* need to get this to work without !important */
+.btn--primary--solid {
+    background-color: var(--blue) !important;
+    color: var(--pink) !important;
+    border: solid !important;
+    border-color: var(--blue) !important;
+}

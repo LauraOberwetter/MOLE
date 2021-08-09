@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import api from "../../utils/API";
+import {Button} from "../Button/Button.jsx";
+import "./login.css";
+
+
 function Login({ userLogged, setUserLogged, changeScreen }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,14 +26,7 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
 
   return (
     <div className="login-wrapper">
-      <h1
-        style={{
-          color: "#1F4D19",
-          paddingTop: "35px",
-          paddingBottom: "35px",
-          fontFamily: 'Zilla Slab',
-        }}
-      >
+      <h1 className="loginHead">
         Please Log In
       </h1>
       <form>
@@ -45,18 +42,18 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
           />
         </label>
         <div>
-          <button type="button" onClick={handleLoginClick}>
+          <Button type="button" onClick={handleLoginClick}>
             Submit
-          </button>
+          </Button>
         </div>
       </form>
-      <button
+      <Button
         onClick={() => {
           changeScreen("register");
         }}
       >
         Register
-      </button>
+      </Button>
     </div>
   );
 }
