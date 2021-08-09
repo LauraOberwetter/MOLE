@@ -10,7 +10,7 @@ const Dashboard = () => {
 
       <h1
         style={{
-          color: "#1F4D19",
+          color: "#593431",
           paddingTop: "35px",
           paddingBottom: "35px",
           fontFamily: "Zilla Slab",
