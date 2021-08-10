@@ -5,6 +5,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import {Button} from "../Button/Button.jsx";
+import "./login.css";
+
 
 function Login({ userLogged, setUserLogged, changeScreen }) {
   const [username, setUsername] = useState("");
@@ -28,6 +31,7 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
 
   return (
     <div className="login-wrapper">
+
       <Container>
         <h1>Please Log In</h1>
         <Row className="mb-3">
@@ -79,6 +83,11 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
 }
 
 /* <Form>
+
+      <h1 className="loginHead">
+        Please Log In
+      </h1>
+      <form>
         <label>
           <p>Username</p>
           <input type="text" onChange={(e) => setUsername(e.target.value)} />
@@ -90,15 +99,32 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+
         
       </Form> */
 
 /* <button
+
+        <div>
+          <Button type="button" onClick={handleLoginClick}>
+            Submit
+          </Button>
+        </div>
+      </form>
+      <Button
+
         onClick={() => {
           changeScreen("register");
         }}
       >
         Register
-      </button> */
+
+      </button> 
+
+      </Button>
+    </div>
+  );
+}*/
+
 
 export default Login;

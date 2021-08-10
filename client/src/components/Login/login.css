@@ -4,21 +4,21 @@
     --pink: #FAF3F0;
 }
 
-.content {
+.login-wrapper {
     background-color: white;
     border-style: solid;
     border-radius: 20px;
     border-color: var(--brown);
     width: 70%;
     padding: 20px;
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.consentHead {
+.loginHead {
     background-color: var(--pink);
     border-style: solid;
     border-radius: 20px;
@@ -31,12 +31,20 @@
     font-size: 2em;
 }
 
-.copyAndButtons {
-  overflow: scroll;
-  height: 400px;
+label {
+    font-family: "Roboto";
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    padding: 10px;
 }
 
 p {
-  font-family: "roboto";
-  padding: 40px;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 30px;
 }

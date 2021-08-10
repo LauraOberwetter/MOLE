@@ -8,6 +8,7 @@ import {
 import Dashboard from "./pages/Dashboard";
 import Consent from "./components/Consent";
 import Login from "./components/Login";
+
 import Register from "./components/Register";
 import RegisterLogin from "./pages/RegisterLogin";
 import NotFound from "./pages/NotFound";
@@ -16,12 +17,12 @@ import { Helmet } from "react-helmet";
 import JSPsych from "./components/JSPsych";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 function App() {
   const [user, setUser] = useState(null);
   const [userLogged, setUserLogged] = useState(0);
 
-  useEffect(() => {
-    const unsubscribe = () => {
+  useEffect(() => {    const unsubscribe = () => {
       let userInfo = localStorage.getItem("user");
       if (userInfo) {
         let userInSession = JSON.parse(userInfo);
@@ -36,7 +37,12 @@ function App() {
     <Router>
       <div>
         <Helmet>
-          <style>{"body { background-color:#FAF3F0; }"}</style>
+          <style>
+            {`
+              body {
+                background-color: #FAF3F0;
+            `}
+          </style>
         </Helmet>
         <Nav />
         {!user ? <Redirect to="/" /> : <Redirect to="/login" />}
@@ -55,6 +61,7 @@ function App() {
           </Route>
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
+
           <Route exact path="/register" component={Register} />
           <Route exact path="/jspsych" component={JSPsych} />
           <Route component={NotFound} />

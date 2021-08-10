@@ -27,12 +27,18 @@ class Navbar extends React.Component {
         {/* </div> */}
         {/* div for wrapping links */}
         <NavMenu className="nav">
+
           {/* <NavLink className="navLink" to="/">
             Dashboard{" "}
           </NavLink> */}
           {/* <NavLink className="navLink" onClick={logOut}>
             Logout{" "}
           </NavLink> */}
+
+          <NavLink className="navLink" to="/login">
+            Already Registered? Sign In Here!{" "}
+          </NavLink>
+
         </NavMenu>
       </Nav>
     );
