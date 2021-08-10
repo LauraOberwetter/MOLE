@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -9,7 +8,8 @@ import {
 import Dashboard from "./pages/Dashboard";
 import Consent from "./components/Consent";
 import Login from "./components/Login";
-//import Register from "./components/Register";
+
+import Register from "./components/Register";
 import RegisterLogin from "./pages/RegisterLogin";
 import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
@@ -45,9 +45,9 @@ function App() {
           </style>
         </Helmet>
         <Nav />
-        {!user ? <Redirect to="/" /> : <Redirect to="/dashboard" />}
+        {!user ? <Redirect to="/" /> : <Redirect to="/login" />}
         <Switch>
-          <Route exact path="/" component={Consent} />
+          {/* <Route exact path="/" component={Consent} /> */}
           {/* clean this up later...just replaced Dashboard with Consent comp */}
           <Route exact path="/dashboard" component={Consent} />
 
@@ -61,7 +61,8 @@ function App() {
           </Route>
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={RegisterLogin}/>
+
+          <Route exact path="/register" component={Register} />
           <Route exact path="/jspsych" component={JSPsych} />
           <Route component={NotFound} />
         </Switch>

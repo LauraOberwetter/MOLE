@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import api from "../../utils/API";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import {Button} from "../Button/Button.jsx";
 import "./login.css";
 
@@ -26,6 +31,59 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
 
   return (
     <div className="login-wrapper">
+
+      <Container>
+        <h1>Please Log In</h1>
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            className="mb-3 mt-3"
+            controlId="formBasicUsername"
+          >
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter username"
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            className="mb-3 mt-3"
+            controlId="formBasicPassword"
+          >
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter username"
+            />
+          </Form.Group>
+        </Row>
+        <div>
+          <Button type="button" onClick={handleLoginClick}>
+            Login
+          </Button>
+        </div>
+        <p>
+          Not Registered Yet?{" "}
+          <a
+            onClick={() => {
+              changeScreen("register");
+            }}
+          >
+            Register
+          </a>
+        </p>
+      </Container>
+    </div>
+  );
+}
+
+/* <Form>
+
       <h1 className="loginHead">
         Please Log In
       </h1>
@@ -41,6 +99,12 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+
+        
+      </Form> */
+
+/* <button
+
         <div>
           <Button type="button" onClick={handleLoginClick}>
             Submit
@@ -48,14 +112,19 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
         </div>
       </form>
       <Button
+
         onClick={() => {
           changeScreen("register");
         }}
       >
         Register
+
+      </button> 
+
       </Button>
     </div>
   );
-}
+}*/
+
 
 export default Login;

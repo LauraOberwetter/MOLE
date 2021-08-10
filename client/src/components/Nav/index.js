@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { Nav, Bars, NavMenu } from "./navElements";
 import logo from "./logo.svg";
+// import { LocalDiningOutlined } from "@material-ui/icons";
+
+// const history=useHistory();
+// Function logOut() {
+//   localStorage.clear();
+//   history.push('/register')
+// }
 
 class Navbar extends React.Component {
   render() {
@@ -20,9 +27,18 @@ class Navbar extends React.Component {
         {/* </div> */}
         {/* div for wrapping links */}
         <NavMenu className="nav">
+
+          {/* <NavLink className="navLink" to="/">
+            Dashboard{" "}
+          </NavLink> */}
+          {/* <NavLink className="navLink" onClick={logOut}>
+            Logout{" "}
+          </NavLink> */}
+
           <NavLink className="navLink" to="/login">
             Already Registered? Sign In Here!{" "}
           </NavLink>
+
         </NavMenu>
       </Nav>
     );
