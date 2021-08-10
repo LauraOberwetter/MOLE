@@ -7,7 +7,7 @@
     "instructor": "Japanese Instructor",
     "email": "rsmith@university.edu",
     "username": "rsmith",
-    "password": "password1",
+    "password": "passwordrsmith",
     "opt_in": 1
   },
   {
@@ -18,7 +18,7 @@
     "instructor": "Japanese Instructor",
     "email": "ijohnson@university.edu",
     "username": "ijohnson",
-    "password": "password2",
+    "password": "passwordijohnson",
     "opt_in": 1
   },
   {
@@ -29,7 +29,7 @@
     "instructor": "French Instructor",
     "email": "nbradley@university.edu",
     "username": "nbradley",
-    "password": "password3",
+    "password": "passwordnbradley",
     "opt_in": 0
   },
   {
@@ -40,7 +40,7 @@
     "instructor": "Spanish Instructor",
     "email": "ajones@university.edu",
     "username": "ajones",
-    "password": "password4",
+    "password": "passwordajones",
     "opt_in": 1
   },
   {
@@ -51,7 +51,7 @@
     "instructor": "Spanish Instructor",
     "email": "tolson@university.edu",
     "username": "tolson",
-    "password": "password5",
+    "password": "passwordtolson",
     "opt_in": 1
   }
 ]

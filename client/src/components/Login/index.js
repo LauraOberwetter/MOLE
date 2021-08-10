@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import api from "../../utils/API";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+
 function Login({ userLogged, setUserLogged, changeScreen }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,17 +28,57 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
 
   return (
     <div className="login-wrapper">
-      <h1
-        style={{
-          color: "#1F4D19",
-          paddingTop: "35px",
-          paddingBottom: "35px",
-          fontFamily: 'Zilla Slab',
-        }}
-      >
-        Please Log In
-      </h1>
-      <form>
+      <Container>
+        <h1>Please Log In</h1>
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            className="mb-3 mt-3"
+            controlId="formBasicUsername"
+          >
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter username"
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            className="mb-3 mt-3"
+            controlId="formBasicPassword"
+          >
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter username"
+            />
+          </Form.Group>
+        </Row>
+        <div>
+          <Button type="button" onClick={handleLoginClick}>
+            Login
+          </Button>
+        </div>
+        <p>
+          Not Registered Yet?{" "}
+          <a
+            onClick={() => {
+              changeScreen("register");
+            }}
+          >
+            Register
+          </a>
+        </p>
+      </Container>
+    </div>
+  );
+}
+
+/* <Form>
         <label>
           <p>Username</p>
           <input type="text" onChange={(e) => setUsername(e.target.value)} />
@@ -44,21 +90,15 @@ function Login({ userLogged, setUserLogged, changeScreen }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <div>
-          <button type="button" onClick={handleLoginClick}>
-            Submit
-          </button>
-        </div>
-      </form>
-      <button
+        
+      </Form> */
+
+/* <button
         onClick={() => {
           changeScreen("register");
         }}
       >
         Register
-      </button>
-    </div>
-  );
-}
+      </button> */
 
 export default Login;
