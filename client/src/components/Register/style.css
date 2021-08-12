@@ -1,51 +1,46 @@
+/* :root {
+  --blue: #7498DA;
+  --brown: #593431;
+  --pink: #FAF3F0;
+}
+
 .content {
   background-color: white;
-  /* border */
   border-style: solid;
   border-radius: 20px;
-  border-color: #1f4d19;
-  /* size */
+  border-color: var(--brown);
   width: 70%;
-  /* position */
   padding: 20px;
-  position: relative;
+  position: absolute;
   left: 50%;
-  top: 40vh;
+  top: 50%;
   transform: translate(-50%, -50%);
-  /* content */
   text-align: center;
 }
 
 .consentHead {
-  background-color: #faf3f0;
+  background-color: var(--pink);
   border-style: solid;
   border-radius: 20px;
-  border-color: #1f4d19;
+  border-color: var(--brown);
   width: 90%;
   margin: auto;
   padding: 10px;
-  font-family: "Zilla Slab";
-  color: #1f4d19;
+  font-family: 'Zilla Slab';
+  color: black;
   font-size: 2em;
 }
 
 .copyAndButtons {
-  overflow: scroll;
-  height: 400px;
+overflow: scroll;
+height: 400px;
 }
 
 p {
-  font-family: "roboto";
-  padding: 40px;
-}
+font-family: "roboto";
+padding: 40px;
+} */
 
-button {
-  background-color: #593531;
-  color: #faf3f0;
-  padding: 10px;
-  border: solid white;
-  border-radius: 12px;
-}
 
 .registrationForm {
   position: relative;

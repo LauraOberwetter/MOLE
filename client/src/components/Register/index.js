@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Consent from "../Consent";
-import "./style.css";
+//import "./style.css";
 
 const Register = ({ changeScreen, setUserLogged, userLogged }) => {
   const [user, setUser] = useState({
