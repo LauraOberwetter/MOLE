@@ -48,3 +48,43 @@ padding: 40px;
   /* left: 20vw; */
   top: 20vh;
 }
+
+:root {
+  --blue: #7498DA;
+  --brown: #593431;
+  --pink: #FAF3F0;
+}
+
+.register-content {
+  max-height: 65vh;
+  overflow: scroll;
+  background-color: white;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: var(--brown);
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  left: 20%;
+  top: -100px;
+  /*transform: translate(-50%, -50%);*/
+  text-align: center;
+}
+
+.consentHead {
+  background-color: var(--pink);
+  border-style: solid;
+  border-radius: 20px;
+  border-color: var(--brown);
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  font-family: 'Zilla Slab';
+  color: black;
+  font-size: 2em;
+}
+
+p {
+  font-family: "roboto";
+  padding: 40px;
+}
